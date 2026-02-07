@@ -1,0 +1,99 @@
+configuration {
+    scroll-method: 1;
+    scrollbar: true;
+    show-icons: true;
+    display-run: "Run ";
+    display-drun: "Open ";
+    display-emoji: "Emoji ";
+    drun-display-format: "{icon} {name}";
+    modi: "run,drun,emoji";
+}
+
+* {
+    background: #1e1e2e;
+    foreground: #cdd6f4;
+    bordercolor: #cba6f7;
+    selected-background: #313244;
+    select: #89b4fa;
+    font: "JetBrainsMono Nerd Font 15";
+}
+
+#window {
+    background-color: @background;
+    border:           3;
+    border-radius:    15;
+    border-color:     @bordercolor;
+    padding:          15;
+    width:            600px;
+}
+
+#listview {
+    lines:        6;
+    fixed-height: 0;
+    border:       0px;
+    spacing:      5px ;
+    padding:      10px 0px 0px ;
+}
+
+#element {
+    border:        0;
+    border-radius: 12px;
+    padding:       5px;
+    /* تمت إزالة السطر المسبب للخطأ هنا */
+}
+
+#element.normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+#element.alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-background;
+    text-color:       @bordercolor;
+}
+
+element-text, element-icon {
+    size:             45px;
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+    handle-color: @select;
+}
+
+#inputbar {
+    children:   [ prompt, textbox-prompt-colon, entry ];
+    spacing:       0;
+    padding:       15px;
+    border:        2px;
+    border-radius: 10px;
+    border-color:  @bordercolor;
+    background-color: @selected-background;
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @select;
+}
+
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ">";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @select;
+}
+
+#entry {
+    spacing:    0;
+    text-color: @foreground;
+}

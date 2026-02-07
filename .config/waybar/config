@@ -1,0 +1,197 @@
+{
+    "modules-left": ["custom/power", "custom/gh_heatmap", "hyprland/workspaces", "idle_inhibitor", "custom/update"],
+
+    "modules-center": ["custom/colorpicker", "custom/hijri", "clock", "custom/privacy-dots", "tray"],
+    
+    "modules-right": ["mpris", "custom/language", "bluetooth", "network", "custom/mobile", "battery", "power-profiles-daemon", "pulseaudio", "pulseaudio#microphone", "custom/notification"],
+
+    "custom/power": {
+        "format" : "⭘ ",
+        "tooltip": false,
+        "on-click": "wlogout -b 5",
+    },
+
+
+    "custom/hijri": {
+        "exec": "~/.config/waybar/scripts/hijri.sh",
+        "interval": 3600,
+        "format": "󰥔 {}"
+    },
+
+
+
+    "custom/update": {
+        "format": "<span foreground=\"black\">{}  <big></big></span>",
+        "interval": 3600,                     
+        "exec": "~/.config/waybar/updates.sh",       
+        "on-click": "footclient zsh -i -c \"yolo; read -s -k '?done'; pkill -SIGRTMIN+8 waybar\"", 
+        "signal": 8,
+        "return-type": "json"
+    },
+
+    "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {title}",
+        "max-length": 30, 
+        "interval": 1,
+        "format-paused": "{status_icon} <i>{title}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        }
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "cursor": true,
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power Profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    "custom/gh_heatmap": {
+        "exec": "sleep 1 & ~/.config/waybar/scripts/weekly_commits DARK",
+        "return-type": "json",
+        "interval": 2400,
+        "tooltip": true,
+        "on-click": "xdg-open https://github.com/ahmed-x86",
+        "on-click-right": "~/.config/waybar/scripts/weekly_commits DARK"
+      },
+
+    "custom/language": {
+        "exec": "$HOME/.config/waybar/get_lang.sh",
+        "interval": 1,
+        "format": "  {}",
+        "on-click": "hyprctl switchxkblayout all next",
+        "tooltip": false
+    },
+    "custom/mobile": {
+    "format": "{text}",
+    "exec": "~/.local/bin/mobile",
+    "interval": 30,
+    "return-type": "json",
+    "on-click": "kdeconnect-cli -d XXXXXXXXXXXXXXXXXXXXXXXXXXX --ping" #this is my script https://github.com/ahmed-x86/mobile_charge_indicator_waybar
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10,
+        "cursor": true,
+    },
+
+    "bluetooth": {
+        "format": " 󰂯 ",
+        "format-disabled": " 󰂲 ",
+        "format-connected": " 󰂱 ",
+        "on-click": "blueman-manager",
+    },
+
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "  Ethernet",
+        "format-linked": "  Linked (No IP)",
+        "format-disconnected": "  Disconnected",
+        "tooltip": false,
+    },
+    
+
+    
+    "custom/privacy-dots": {
+        "exec": "privacy-dots",
+        "return-type": "json",
+        "interval": 3,
+        "format": "{text}",
+        "tooltip": true,
+        "escape": false,
+        "markup": "pango"
+    },
+
+    "battery": {
+        "states": {
+            "good": 85,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "tooltip-format": "{time}",
+        "cursor": false,
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "  {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "  {volume}%",
+        "format-icons": {
+            "headphone": " ",
+            "headset": " ",
+            "default": [" "],
+        },
+        "on-click": "pavucontrol",
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "  Muted",
+        "on-click": "pavucontrol -t 4",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "scroll-step": 5
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": " ",
+        "on-click": "swaync-client -t -sw"
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<span size='16000' weight='bold'>{:%A %d}</span>\n\n<span size='14000'><tt>{calendar}</tt></span>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#CBA6F7' weight='bold'>{}</span>",
+                "weekdays": "<span color='#89DCEB' weight='bold'>{}</span>",
+                "days": "<span color='#CDD6F4'>{}</span>",
+                "today": "<span color='#A6E3A1' weight='bold' underline='single'>{}</span>"
+            }
+        },
+        "on-click": "show-tooltip"
+    },
+
+
+
+    
+    "custom/colorpicker": {
+        "format": " ",
+        "on-click": "bash -c 'hyprpicker -a | xargs -I {} notify-send \"Color Picked\" \"{}\"'",
+        "tooltip": false
+    }
+}

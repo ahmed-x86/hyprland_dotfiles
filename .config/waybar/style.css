@@ -1,0 +1,230 @@
+/* @import "$HOME/.config/colors/colors.css" */
+@import "../colors/colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 5px;
+    min-height: 0;
+}
+
+window,
+tooltip {
+    background-color: #1e1e2e; /* Base */
+    color: #cdd6f4; /* Text */
+}
+
+#waybar {
+    background: rgba(30, 30, 46, 0.6); /* Base with opacity */
+    border-radius: 0;
+}
+
+#workspaces {
+    margin: 1px 0;
+}
+
+#workspaces button {
+    color: #cdd6f4; /* Text */
+    border: none;
+    padding: 0 4px;
+}
+#workspaces button:hover {
+    color: #f5c2e7; /* Pink */
+    transition: none;
+    border-bottom: 1px solid #f5c2e7;
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    color: #f5c2e7; /* Pink */
+    border: 2px solid #f5c2e7;
+    padding: 0 4px;
+    margin: 0 2px;
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8; /* Red */
+    color: #1e1e2e; /* Base */
+    padding: 0 4px;
+}
+
+/* المجموعة الأساسية */
+#custom-power,
+#tray,
+#bluetooth,
+#network,
+#battery,
+#pulseaudio,
+#pulseaudio.microphone,
+#clock {
+    color: #cdd6f4; /* Text */
+    margin: 0 2px;
+    padding: 0 4px;
+}
+
+#custom-power:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#pulseaudio:hover,
+#pulseaudio.microphone:hover,
+#clock:hover {
+    background-color: rgba(69, 71, 90, 0.6); /* Surface1 with opacity */
+}
+
+#bluetooth { color: #f9e2af; /* Yellow */ }
+#network { color: #a6e3a1; /* Green */ }
+#battery { color: #cba6f7; /* Mauve */ }
+#pulseaudio { color: #fab387; /* Peach */ }
+#pulseaudio.microphone { color: #f5c2e7; /* Pink */ }
+
+#clock {
+    margin-right: 2px;
+    color: #89b4fa; /* Blue */
+}
+
+#custom-power {
+    margin-left: 2px;
+    padding: 0 4px 0 8px;
+    color: #f38ba8; /* Red for power button usually looks good */
+}
+
+#custom-notification {
+    color: #89b4fa; /* Blue */
+    padding: 0 4px;
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+#custom-notification:hover {
+    background-color: rgba(69, 71, 90, 0.6);
+}
+
+#custom-colorpicker {
+    color: #94e2d5; /* Teal */
+    padding: 0 4px;
+}
+
+#custom-colorpicker:hover {
+    background-color: rgba(69, 71, 90, 0.6);
+}
+
+/* Mobile battery module */
+#custom-mobile {
+    font-family: "JetBrains Mono Nerd", monospace;
+    font-size: 14px;
+    padding: 0 4px;
+    margin-left: 2px;
+}
+
+#custom-mobile.critical { color: #f38ba8; /* Red */ }
+#custom-mobile.warning { color: #f9e2af; /* Yellow */ }
+#custom-mobile.normal { color: #a6e3a1; /* Green */ }
+
+#power-profiles-daemon {
+    padding: 0 6px;
+}
+
+#power-profiles-daemon.performance { color: #f38ba8; /* Red */ }
+#power-profiles-daemon.balanced { color: #89b4fa; /* Blue */ }
+#power-profiles-daemon.power-saver { color: #a6e3a1; /* Green */ }
+
+#power-profiles-daemon:hover {
+    background-color: rgba(69, 71, 90, 0.6);
+}
+
+#custom-language {
+    background-color: #89dceb; /* Sky */
+    color: #1e1e2e; /* Base (Dark text on bright bg) */
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#custom-privacy-dots {
+  padding: 0 6px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #cdd6f4;
+}
+
+#custom-gh_heatmap {
+  color: #a6e3a1; /* Green */
+  background: rgba(30, 30, 46, 0.9); /* Base */
+  border-radius: 6px;
+  margin-right: 2px;
+  padding: 0 6px;
+}
+
+/* -----------------------------------------------------
+   Idle Inhibitor (مانع السكون)
+   ----------------------------------------------------- */
+#idle_inhibitor {
+    background-color: rgba(69, 71, 90, 0.4); /* Surface1 */
+    color: #cdd6f4;
+    border-bottom: 2px solid transparent;
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 10px;
+}
+
+#idle_inhibitor.activated {
+    background-color: #f38ba8; /* Red */
+    color: #1e1e2e; /* Dark text */
+    border-bottom: 2px solid #d20f39; /* Darker Red */
+}
+
+/* -----------------------------------------------------
+   MPRIS (مشغل الوسائط)
+   ----------------------------------------------------- */
+#mpris {
+    background-color: rgba(137, 180, 250, 0.2); /* Blue transparent */
+    color: #cdd6f4;
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 10px;
+}
+
+#mpris.playing {
+    background-color: rgba(137, 180, 250, 0.8); /* Blue strong */
+    color: #1e1e2e;
+}
+
+#mpris.paused {
+    background-color: rgba(108, 112, 134, 0.4); /* Overlay0 */
+    color: #a6adc8; /* Subtext0 */
+    font-style: italic;
+}
+
+/* -----------------------------------------------------
+   System Updates (تحديثات النظام)
+   ----------------------------------------------------- */
+#custom-update {
+    background-color: rgba(203, 166, 247, 1); /* Mauve */
+    color: #1e1e2e; /* Base */
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#custom-update:hover {
+    background-color: #cba6f7; /* Mauve */
+    color: #1e1e2e;
+    transition: all 0.3s ease;
+}
+
+/* لون النص والتنسيق للموديول الهجري */
+.custom-hijri {
+    color: #f9e2af;          /* Yellow (Catppuccin) */
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 8px;
+}
+
+.custom-hijri:hover {
+    color: #fab387;          /* Peach */
+}
