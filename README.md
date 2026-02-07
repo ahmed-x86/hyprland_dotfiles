@@ -1,3 +1,10 @@
+<div align="center">
+
+[**🇸🇦 العربية**](./README_AR.md) | [**🇺🇸 English**](./README.md)
+
+</div>
+
+---
 # 🍙 My Hyprland Dotfiles
 
 ![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
