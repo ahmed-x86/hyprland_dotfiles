@@ -42,7 +42,25 @@ Here is a detailed breakdown of the modules used in my Waybar configuration:
 | `custom/colorpicker` | **Custom** 🛠️ | Screen Color Picker Tool |
 | `custom/hijri` | **Custom** 🛠️ | Hijri Calendar Date (**For Muslims**) |
 | `clock` | Built-in 📦 | Time & Gregorian Date |
-| `custom/privacy-dots`| **Custom** 🛠
+| `custom/privacy-dots`| **Custom** 🛠️ | [Privacy Dots (Mic, Camera, Location)](https://github.com/alvaniss/privacy-dots) |
+| `tray` | Built-in 📦 | System Tray Icons |
+
+### ➡️ Right Modules
+| Module Name | Type | Description |
+| :--- | :--- | :--- |
+| `mpris` | Built-in 📦 | Media Player Controls |
+| `custom/language` | **Custom** 🛠️ | Keyboard Layout Indicator |
+| `bluetooth` | Built-in 📦 | Bluetooth Status & Connection |
+| `network` | Built-in 📦 | Network & Wi-Fi Status |
+| `custom/mobile` | **Custom** 🛠️ | [Mobile Charge Indicator](https://github.com/ahmed-x86/mobile_charge_indicator_waybar) |
+| `battery` | Built-in 📦 | Battery Level & Status |
+| `power-profiles` | Built-in 📦 | Power Profiles (Performance/Saver) |
+| `pulseaudio` | Built-in 📦 | Volume Control |
+| `pulseaudio#mic` | Built-in 📦 | Microphone Control |
+| `custom/notification`| **Custom** 🛠️ | Notification Center Toggle (SwayNC) |
+
+<br>
+
 ## 📸 Gallery
 
 <div align="center">
