@@ -27,6 +27,7 @@ Welcome to my personal **Hyprland** configuration (dotfiles) on Arch Linux.
 | **Audio Visualizer** | Cava |
 | **GTK Settings** | nwg-look |
 | **Theme** | Catppuccin |
+| **wallpaper** | swww |
 
 <br>
 
