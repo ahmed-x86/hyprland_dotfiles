@@ -90,7 +90,7 @@ alias notepad-ge='/opt/wine-ge-custom-opt/bin/notepad'
 # Setup bat (better than cat)
 export BAT_THEME="base16"
 alias bat='bat --paging=never'
-
+export TERMINAL="kitty"
 # Setup zoxide (better than cd)
 eval "$(zoxide init zsh)"
 
