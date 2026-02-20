@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-#hi it is
+#hi it's
 echo -e "--- [Step 1: The Foundation] ---"
 
 echo -e "Updating Pacman database..."
