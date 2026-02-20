@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo -e "\n--- [Step 1: System Update & Core Tools] ---"
+echo -e "--- [Step 1: The Foundation] ---"
 
-
-echo -e "Updating system packages..."
+echo -e "Updating Pacman database..."
 sudo pacman -Syu --noconfirm
 
-echo -e "Installing base-devel and essential tools..."
-sudo pacman -S --needed --noconfirm base-devel git curl wget
+echo -e "Installing essentials..."
+sudo pacman -S --needed --noconfirm base-devel git curl wget networkmanager bluetooth
 
 
 if ! command -v yay &> /dev/null; then
-    echo -e "Installing yay (AUR Helper)..."
-    cd /tmp
-    git clone https://aur.archlinux.org/yay-bin.git
-    cd yay-bin
+    echo -e "Building yay-bin..."
+    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
+    cd /tmp/yay-bin
     makepkg -si --noconfirm
-    cd ~
-else
-    echo -e "yay is already installed."
+    cd -
 fi
 
-echo -e "\nStep 1 completed successfully!"
+echo -e "Step 1 is ready. The ground is solid!"
