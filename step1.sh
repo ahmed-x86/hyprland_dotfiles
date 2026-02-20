@@ -1,1 +1,2 @@
- echo "step1"
+echo " update system first"
+sudo pacman -Syu
