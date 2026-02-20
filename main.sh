@@ -12,12 +12,12 @@ start_time=$(date +%s)
 clear
 
 echo -e "${PINK}
- *********************************************************************
- * ⚠️  \e[1;4mWARNING\e[0m${PINK}:                             *
- * This script will modify your system!                *
- * It will install Hyprland and several dependencies.        *
- * Make sure you know what you are doing before continuing.     *
- *********************************************************************
+ **********************************************************************
+ * ⚠️  \e[1;4mWARNING\e[0m${PINK}:                                    *
+ * This script will modify your system!                               *
+ * It will install Hyprland and several dependencies.                 *
+ * Make sure you know what you are doing before continuing.           *
+ **********************************************************************
 \n${WHITE}"
 
 chmod +x step*.sh 2>/dev/null || true
