@@ -12,8 +12,11 @@
 
   ![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
   ![Hyprland](https://img.shields.io/badge/Hyprland-004450?style=for-the-badge&logo=hyprland&logoColor=white)
+  ![Waybar](https://img.shields.io/badge/Waybar-292D3E?style=for-the-badge)
+  ![Kitty](https://img.shields.io/badge/Kitty-504945?style=for-the-badge&logo=gnome-terminal&logoColor=white)
+  ![Zsh](https://img.shields.io/badge/Zsh-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+  ![Catppuccin](https://img.shields.io/badge/Catppuccin-F8BD96?style=for-the-badge)
 </div>
-
 <br>
 
 Welcome to my personal **Hyprland** configuration (dotfiles). This setup is designed to be aesthetically pleasing, utilizing the Catppuccin color palette, while maintaining high performance and practical daily usability.
