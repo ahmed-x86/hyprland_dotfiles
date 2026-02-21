@@ -114,5 +114,3 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 
 
 ---
-
-هل تود أن أقوم بتجهيز مسودة لملف `README_AR.md` باللغة العربية بنفس هذا الأسلوب المنظم، أم تفضل إضافة قسم لاختصارات لوحة المفاتيح (Keybindings) أولاً؟
