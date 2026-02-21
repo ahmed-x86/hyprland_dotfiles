@@ -5,12 +5,24 @@
 </div>
 
 ---
-# 🍙 My Hyprland Dotfiles
 
-![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
-![Hyprland](https://img.shields.io/badge/Hyprland-004450?style=for-the-badge&logo=hyprland&logoColor=white)
+<div align="center">
+  <h1>🍙 My Hyprland Dotfiles</h1>
+  <p><i>A minimal, highly customized, and functional Hyprland setup on Arch Linux.</i></p>
 
-Welcome to my personal **Hyprland** configuration (dotfiles) on Arch Linux.
+  ![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
+  ![Hyprland](https://img.shields.io/badge/Hyprland-004450?style=for-the-badge&logo=hyprland&logoColor=white)
+</div>
+
+<br>
+
+Welcome to my personal **Hyprland** configuration (dotfiles). This setup is designed to be aesthetically pleasing, utilizing the Catppuccin color palette, while maintaining high performance and practical daily usability.
+
+## ✨ Features
+- **Fast & Lightweight:** Built on top of Arch Linux with the Hyprland Wayland compositor.
+- **Aesthetic UI:** Consistent Catppuccin theme integration across the system, GTK apps, and terminal.
+- **Advanced Waybar:** Highly modular status bar with bespoke custom modules (Hijri calendar, dynamic privacy dots, GitHub heatmap, mobile charge indicator).
+- **Smooth Animations:** Fluid window management and transitions.
 
 ## 🛠️ Software & Tools
 
@@ -27,13 +39,13 @@ Welcome to my personal **Hyprland** configuration (dotfiles) on Arch Linux.
 | **Audio Visualizer** | Cava |
 | **GTK Settings** | nwg-look |
 | **Theme** | Catppuccin |
-| **wallpaper** | swww |
+| **Wallpaper** | swww |
 
 <br>
 
 ## 🍧 Waybar Configuration
 
-Here is a detailed breakdown of the modules used in my Waybar configuration:
+Here is a detailed breakdown of the modules used in my Waybar setup:
 
 ### ⬅️ Left Modules
 | Module Name | Type | Description |
@@ -69,17 +81,38 @@ Here is a detailed breakdown of the modules used in my Waybar configuration:
 
 <br>
 
-## 📸 Gallery
+## 📂 Structure
 
-<div align="center">
-  <img src="screenshot_2026-02-07_10-21-48.png" width="48%" title="Desktop View 1" />
-  <img src="screenshot_2026-02-07_17-03-54.png" width="48%" title="Desktop View 2" />
-  <br><br>
-  <img src="screenshot_2026-02-07_19-22-20.png" width="48%" title="Desktop View 3" />
-  <img src="screenshot_2026-02-07_19-23-34.png" width="48%" title="Desktop View 4" />
-</div>
+- `~/.config/`: Contains configurations for Hyprland, Waybar, Kitty, Wlogout, Rofi, and other apps.
+- `~/.icons/`: Custom system and cursor icon packs.
+- `~/.themes/`: GTK themes (Catppuccin).
 
 <br>
 
-## 📂 Structure
-- **.config/**: Contains configurations for Hyprland, Waybar, Kitty, etc.
+## 🚀 Installation
+
+> **⚠️ Note:** Please back up your existing configurations before proceeding to avoid losing your current setup.
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ahmed-x86/hyprland_dotfiles
+   cd hyprland_dotfiles
+   chmod +x *
+   ./main.sh
+(Ensure you have all the necessary packages listed in the "Software & Tools" section installed via pacman or your preferred AUR helper like yay or paru)
+📸 Gallery
+
+<div align="center">
+<img src="screenshot_2026-02-07_10-21-48.png" width="48%" title="Desktop View 1" />
+<img src="screenshot_2026-02-07_17-03-54.png" width="48%" title="Desktop View 2" />
+
+
+
+<img src="screenshot_2026-02-07_19-22-20.png" width="48%" title="Desktop View 3" />
+<img src="screenshot_2026-02-07_19-23-34.png" width="48%" title="Desktop View 4" />
+</div>
+
+
+---
+
+هل تود أن أقوم بتجهيز مسودة لملف `README_AR.md` باللغة العربية بنفس هذا الأسلوب المنظم، أم تفضل إضافة قسم لاختصارات لوحة المفاتيح (Keybindings) أولاً؟
