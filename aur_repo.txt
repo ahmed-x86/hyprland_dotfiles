@@ -1,1 +1,1 @@
-pokemon-colorscripts oh-my-posh privacy-dots
+oh-my-posh privacy-dots
