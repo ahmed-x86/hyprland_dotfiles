@@ -29,18 +29,17 @@ Welcome to my personal **Hyprland** configuration (dotfiles). This setup is desi
 | Category | Component |
 |----------|-----------|
 | **Window Manager** | [Hyprland](https://hyprland.org/) |
-| **Status Bar** | Waybar |
-| **Shell** | Zsh |
-| **Terminal** | Kitty |
-| **App Launcher** | Rofi |
-| **Notifications** | SwayNC |
-| **OSD** | SwayOSD |
-| **Logout Menu** | wlogout |
-| **Audio Visualizer** | Cava |
-| **GTK Settings** | nwg-look |
-| **Theme** | Catppuccin |
-| **Wallpaper** | swww |
-
+| **Status Bar** | [Waybar](https://github.com/Alexays/Waybar) |
+| **Shell** | [Zsh](https://www.zsh.org/) |
+| **Terminal** | [Kitty](https://sw.kovidgoyal.net/kitty/) |
+| **App Launcher** | [Rofi (Wayland)](https://github.com/lbonn/rofi-wayland) |
+| **Notifications** | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) |
+| **OSD** | [SwayOSD](https://github.com/ErikReider/SwayOSD) |
+| **Logout Menu** | [wlogout](https://github.com/ArtsyMacaw/wlogout) |
+| **Audio Visualizer** | [Cava](https://github.com/karlstav/cava) |
+| **GTK Settings** | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
+| **Theme** | [Catppuccin](https://github.com/catppuccin/catppuccin) |
+| **Wallpaper** | [swww](https://github.com/LGFae/swww) |
 <br>
 
 ## 🍧 Waybar Configuration
