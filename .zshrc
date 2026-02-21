@@ -95,8 +95,7 @@ export TERMINAL="kitty"
 eval "$(zoxide init zsh)"
 
 
-# Pokemon startup
-pokemon-colorscripts --no-title -s -r
+
 
 # Initialize Oh-My-Posh
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/catppuccin.omp.json)"
