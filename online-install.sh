@@ -38,6 +38,24 @@ fi
 
 echo -e "${GREEN}Step 1 is ready. The ground is solid!${WHITE}\n"
 
+echo -e "${YELLOW}--- [Step 2: Structuring the Kingdom] ---${WHITE}"
+
+echo -e "${GREEN}Creating configuration directories...${WHITE}"
+
+mkdir -p ~/.config/cava
+mkdir -p ~/.config/hypr/conf
+mkdir -p ~/.config/kitty
+mkdir -p ~/.config/nwg-look
+mkdir -p ~/.config/rofi
+mkdir -p ~/.config/swaync
+mkdir -p ~/.config/swayosd
+mkdir -p ~/.config/viegphunt
+mkdir -p ~/.config/waybar/scripts/Assets
+mkdir -p ~/.config/waybar/scripts/weekly_commits
+mkdir -p ~/.config/wlogout/icons
+
+echo -e "${GREEN}Directories created successfully!${WHITE}\n"
+
 
 end_time=$(date +%s)
 duration=$((end_time - start_time))
