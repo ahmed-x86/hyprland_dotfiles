@@ -8,9 +8,6 @@ h_year=$(echo $current_data | jq -r '.data.hijri.year')
 h_month_num=$(echo $current_data | jq -r '.data.hijri.month.number')
 
 
-header="<span color='#89DCEB' weight='bold'> سبت  أحد  الإثنن  الثلاث  الأربع  الخميس  الجمعة</span>"
-
-
 calendar_days=""
 for i in {1..30}; do
     
