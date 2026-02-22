@@ -13,11 +13,12 @@
 
 
     "custom/hijri": {
+        "format": "{}",
         "exec": "~/.config/waybar/scripts/hijri.sh",
+        "return-type": "json",
         "interval": 3600,
-        "format": "󰥔 {}"
+        "tooltip": true
     },
-
 
 
     "custom/update": {
