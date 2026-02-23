@@ -26,3 +26,5 @@ mkdir -p \
 "$CONFIG_DIR/wlogout/icons"
 
 echo -e "${GREEN}✅ Directories created successfully.${NC}"
+
+echo -e "\n${YELLOW}📥 Fetching dotfiles directly from GitHub... Please wait.${NC}"
