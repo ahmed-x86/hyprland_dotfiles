@@ -39,3 +39,5 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/environment.conf -o "$CONFIG_DIR/hypr/conf/environment.conf"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/input.conf -o "$CONFIG_DIR/hypr/conf/input.conf"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/keybinding.conf -o "$CONFIG_DIR/hypr/conf/keybinding.conf"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/layout.conf -o "$CONFIG_DIR/hypr/conf/layout.conf"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/misc.conf -o "$CONFIG_DIR/hypr/conf/misc.conf"
