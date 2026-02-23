@@ -75,3 +75,12 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/get_lang.sh -o "$CONFIG_DIR/waybar/get_lang.sh"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/style.css -o "$CONFIG_DIR/waybar/style.css"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/updates.sh -o "$CONFIG_DIR/waybar/updates.sh"
+
+# Wlogout
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/lock.png -o "$CONFIG_DIR/wlogout/icons/lock.png"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/logout.png -o "$CONFIG_DIR/wlogout/icons/logout.png"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/reboot.png -o "$CONFIG_DIR/wlogout/icons/reboot.png"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/shutdown.png -o "$CONFIG_DIR/wlogout/icons/shutdown.png"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/suspend.png -o "$CONFIG_DIR/wlogout/icons/suspend.png"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/layout -o "$CONFIG_DIR/wlogout/layout"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/style.css -o "$CONFIG_DIR/wlogout/style.css"
