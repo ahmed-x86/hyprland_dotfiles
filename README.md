@@ -97,14 +97,14 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 
 You can install these dotfiles using either the **Online** (One-Command) method or the **Offline** (Manual) method. Choose whichever suits you best!
 
-### 🌐 Method 1: Online Install (Recommended)
+### 🌐 Method 1: Online Install 
 The fastest way to get everything up and running. Just paste this single command into your terminal:
 #### It's not complete yet.
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh )" 
 ```
 
-### 📦 Method 2: Offline Install (Manual)
+### 📦 Method 2: Offline Install (Recommended)
 
 If you prefer to clone the repository manually and inspect the scripts before running them:
 
