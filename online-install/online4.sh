@@ -15,3 +15,12 @@ CONFIG_DIR="$HOME/.config"
 
 echo -e "\n${CYAN}📂 Creating necessary directories inside $CONFIG_DIR...${NC}"
 mkdir -p \
+"$CONFIG_DIR/cava" \
+"$CONFIG_DIR/hypr/conf" \
+"$CONFIG_DIR/nwg-look" \
+"$CONFIG_DIR/rofi" \
+"$CONFIG_DIR/swaync" \
+"$CONFIG_DIR/swayosd" \
+"$CONFIG_DIR/viegphunt" \
+"$CONFIG_DIR/waybar/scripts" \
+"$CONFIG_DIR/wlogout/icons"
