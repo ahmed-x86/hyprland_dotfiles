@@ -24,3 +24,5 @@ mkdir -p \
 "$CONFIG_DIR/viegphunt" \
 "$CONFIG_DIR/waybar/scripts" \
 "$CONFIG_DIR/wlogout/icons"
+
+echo -e "${GREEN}✅ Directories created successfully.${NC}"
