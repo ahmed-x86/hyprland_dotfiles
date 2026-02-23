@@ -46,3 +46,4 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/windowrule.conf -o "$CONFIG_DIR/hypr/conf/windowrule.conf"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/conf/workspaces.conf -o "$CONFIG_DIR/hypr/conf/workspaces.conf"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/hyprland.conf -o "$CONFIG_DIR/hypr/hyprland.conf"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/hypr/hyprlock.conf -o "$CONFIG_DIR/hypr/hyprlock.conf"
