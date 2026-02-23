@@ -95,12 +95,29 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 
 > **⚠️ Note:** Please back up your existing configurations before proceeding to avoid losing your current setup.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ahmed-x86/hyprland_dotfiles
-   cd hyprland_dotfiles
-   chmod +x *
-   ./main.sh
+You can install these dotfiles using either the **Online** (One-Command) method or the **Offline** (Manual) method. Choose whichever suits you best!
+
+### 🌐 Method 1: Online Install (Recommended)
+The fastest way to get everything up and running. Just paste this single command into your terminal:
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh )" 
+```
+
+### 📦 Method 2: Offline Install (Manual)
+
+If you prefer to clone the repository manually and inspect the scripts before running them:
+
+Clone the repository:
+```Bash
+git clone [https://github.com/ahmed-x86/hyprland_dotfiles](https://github.com/ahmed-x86/hyprland_dotfiles)
+cd hyprland_dotfiles
+```
+Make the scripts executable and run the installer:
+```Bash
+chmod +x *
+./main.sh
+```
 (Ensure you have all the necessary packages listed in the "Software & Tools" section installed via pacman or your preferred AUR helper like yay or paru)
 📸 Gallery
 
@@ -109,10 +126,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 <img src="screenshot_2026-02-07_17-03-54.png" width="48%" title="Desktop View 2" />
 
 
-
 <img src="screenshot_2026-02-07_19-22-20.png" width="48%" title="Desktop View 3" />
 <img src="screenshot_2026-02-07_19-23-34.png" width="48%" title="Desktop View 4" />
 </div>
-
-
 ---
