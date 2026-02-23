@@ -66,3 +66,12 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_effects.sh -o "$CONFIG_DIR/viegphunt/wallpaper_effects.sh"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_random.sh -o "$CONFIG_DIR/viegphunt/wallpaper_random.sh"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_select.sh -o "$CONFIG_DIR/viegphunt/wallpaper_select.sh"
+
+# Waybar
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/scripts/.env -o "$CONFIG_DIR/waybar/scripts/.env"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/scripts/hijri.sh -o "$CONFIG_DIR/waybar/scripts/hijri.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/scripts/weekly_commits -o "$CONFIG_DIR/waybar/scripts/weekly_commits"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/config -o "$CONFIG_DIR/waybar/config"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/get_lang.sh -o "$CONFIG_DIR/waybar/get_lang.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/style.css -o "$CONFIG_DIR/waybar/style.css"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/waybar/updates.sh -o "$CONFIG_DIR/waybar/updates.sh"
