@@ -57,3 +57,12 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/swaync/style.css -o "$CONFIG_DIR/swaync/style.css"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/swayosd/style.css -o "$CONFIG_DIR/swayosd/style.css"
 
+# Viegphunt Scripts
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/app_launcher.sh -o "$CONFIG_DIR/viegphunt/app_launcher.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/clipboard_launcher.sh -o "$CONFIG_DIR/viegphunt/clipboard_launcher.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/emoji_launcher.sh -o "$CONFIG_DIR/viegphunt/emoji_launcher.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/gtkthemes.sh -o "$CONFIG_DIR/viegphunt/gtkthemes.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/key_hints.sh -o "$CONFIG_DIR/viegphunt/key_hints.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_effects.sh -o "$CONFIG_DIR/viegphunt/wallpaper_effects.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_random.sh -o "$CONFIG_DIR/viegphunt/wallpaper_random.sh"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/viegphunt/wallpaper_select.sh -o "$CONFIG_DIR/viegphunt/wallpaper_select.sh"
