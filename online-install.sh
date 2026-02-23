@@ -9,7 +9,7 @@ RED="\e[31m"
 
 start_time=$(date +%s)
 
-clear
+
 
 echo -e "${PINK}
  **********************************************************************
@@ -20,42 +20,55 @@ echo -e "${PINK}
  **********************************************************************
 \n${WHITE}"
 
-echo -e "${YELLOW}--- [Step 1: The Foundation] ---${WHITE}"
-
-echo -e "${GREEN}Updating Pacman database...${WHITE}"
-sudo pacman -Syu --noconfirm
-
-echo -e "${GREEN}Installing essentials...${WHITE}"
-sudo pacman -S --needed --noconfirm base-devel git curl wget networkmanager bluetooth
-
-if ! command -v yay &> /dev/null; then
-    echo -e "${YELLOW}Building yay-bin...${WHITE}"
-    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
-    cd /tmp/yay-bin
-    makepkg -si --noconfirm
-    cd -
+if [[ ! -f "steps.txt" ]]; then
+    echo "1" > steps.txt
 fi
 
-echo -e "${GREEN}Step 1 is ready. The ground is solid!${WHITE}\n"
+while true; do
+    current_step=$(cat steps.txt | xargs)
 
-echo -e "${YELLOW}--- [Step 2: Structuring the Kingdom] ---${WHITE}"
+    if [[ "$current_step" == "7" ]]; then
+        break
+    fi
 
-echo -e "${GREEN}Creating configuration directories...${WHITE}"
+    if [[ ! "$current_step" =~ ^[1-6]$ ]]; then
+        echo -e "${RED}Error: steps.txt contains an invalid number: ${current_step}${WHITE}"
+        exit 1
+    fi
 
-mkdir -p ~/.config/cava
-mkdir -p ~/.config/hypr/conf
-mkdir -p ~/.config/kitty
-mkdir -p ~/.config/nwg-look
-mkdir -p ~/.config/rofi
-mkdir -p ~/.config/swaync
-mkdir -p ~/.config/swayosd
-mkdir -p ~/.config/viegphunt
-mkdir -p ~/.config/waybar/scripts/Assets
-mkdir -p ~/.config/waybar/scripts/weekly_commits
-mkdir -p ~/.config/wlogout/icons
+    # 1. ضبط الاسم والمسار الصحيحين ليطابق ما رفعته على GitHub
+    script_name="online${current_step}.sh"
+    script_url="https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install/${script_name}"
 
-echo -e "${GREEN}Directories created successfully!${WHITE}\n"
+    echo -e "${YELLOW}==> Fetching & Running ${script_name} online...${WHITE}"
 
+    # 2. تحميل الكود في الذاكرة أولاً لاصطياد خطأ الـ 404
+    if ! script_content=$(curl -fsSL "$script_url"); then
+        echo -e "\n${RED}Error: Could not fetch ${script_name} (404 Not Found or Network Error)${WHITE}"
+        exit 1
+    fi
+
+    # 3. تنفيذ الكود من الذاكرة (لن يصل لهذه الخطوة إذا فشل التحميل)
+    if ! bash -c "$script_content" 2>&1 | tee .temp_log.txt; then
+        echo -e "\n${RED}${script_name} has encountered an error during execution${WHITE}"
+        
+        echo "--- Error in ${script_name} at $(date) ---" >> error_log.txt
+        cat .temp_log.txt >> error_log.txt
+        echo -e "\n" >> error_log.txt
+        
+        rm -f .temp_log.txt
+        
+        echo -e "${YELLOW}Please check 'error_log.txt' for the exact error message.${WHITE}"
+        exit 1
+    fi
+
+    rm -f .temp_log.txt
+
+    next_step=$((current_step + 1))
+    echo "$next_step" > steps.txt
+    
+    echo -e "${GREEN}${script_name} finished successfully.${WHITE}\n"
+done
 
 end_time=$(date +%s)
 duration=$((end_time - start_time))
@@ -69,4 +82,4 @@ printf -v formatted_time "%02d:%02d:%02d" "$hours" "$minutes" "$seconds"
 echo -e "${PINK}=========================================${WHITE}"
 echo -e "${GREEN}Time elapsed: ${formatted_time}${WHITE}"
 echo -e "${PINK}=========================================${WHITE}"
-echo -e "\n${GREEN}\e[1mmission complete\e[0m\n"
+echo -e "\n${GREEN}\e[1mmission complete\e[0m\n"s
