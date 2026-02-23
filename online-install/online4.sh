@@ -84,3 +84,12 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/icons/suspend.png -o "$CONFIG_DIR/wlogout/icons/suspend.png"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/layout -o "$CONFIG_DIR/wlogout/layout"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/style.css -o "$CONFIG_DIR/wlogout/style.css"
+
+echo -e "${GREEN}✅ All files downloaded successfully.${NC}"
+
+echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
+chmod +x "$CONFIG_DIR/viegphunt/"*.sh 2>/dev/null || true
+chmod +x "$CONFIG_DIR/waybar/"*.sh 2>/dev/null || true
+chmod +x "$CONFIG_DIR/waybar/scripts/"* 2>/dev/null || true
+
+echo -e "${GREEN}🎉 [Step 4]: Completed! Your dotfiles are ready.${NC}\n"
