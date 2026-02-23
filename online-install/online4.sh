@@ -50,3 +50,4 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 
 # NWG-Look & Rofi
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/nwg-look/config -o "$CONFIG_DIR/nwg-look/config"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/rofi/config.rasi -o "$CONFIG_DIR/rofi/config.rasi"
