@@ -51,3 +51,9 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 # NWG-Look & Rofi
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/nwg-look/config -o "$CONFIG_DIR/nwg-look/config"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/rofi/config.rasi -o "$CONFIG_DIR/rofi/config.rasi"
+
+# SwayNC & SwayOSD
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/swaync/config.json -o "$CONFIG_DIR/swaync/config.json"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/swaync/style.css -o "$CONFIG_DIR/swaync/style.css"
+curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/swayosd/style.css -o "$CONFIG_DIR/swayosd/style.css"
+
