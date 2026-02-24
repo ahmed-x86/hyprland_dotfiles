@@ -1,1 +1,1 @@
-oh-my-posh privacy-dots 
+oh-my-posh privacy-dots wl-clip-persist
