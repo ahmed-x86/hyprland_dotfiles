@@ -110,7 +110,7 @@ If you prefer to clone the repository manually and inspect the scripts before ru
 
 Clone the repository:
 ```Bash
-git clone [https://github.com/ahmed-x86/hyprland_dotfiles](https://github.com/ahmed-x86/hyprland_dotfiles)
+git clone https://github.com/ahmed-x86/hyprland_dotfiles
 cd hyprland_dotfiles
 ```
 Make the scripts executable and run the installer:
