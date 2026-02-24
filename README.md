@@ -118,7 +118,7 @@ Make the scripts executable and run the installer:
 chmod +x *
 ./main.sh
 ```
-(Ensure you have all the necessary packages listed in the "Software & Tools" section installed via pacman or your preferred AUR helper like yay or paru)
+
 📸 Gallery
 
 <div align="center">
