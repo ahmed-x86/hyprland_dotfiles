@@ -105,7 +105,7 @@
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh )" 
 ```
-📦 الطريقة الثانية: التثبيت اليدوي (مستحسن)
+### 📦 الطريقة الثانية: التثبيت اليدوي (مستحسن)
 
 إذا كنت تفضل استنساخ المستودع وفحص السكربتات قبل تشغيلها:
 
