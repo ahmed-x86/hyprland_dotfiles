@@ -75,7 +75,6 @@
 | `custom/language` | **مخصص** 🛠️ | مؤشر لغة لوحة المفاتيح |
 | `bluetooth` | مدمج 📦 | حالة واتصال البلوتوث |
 | `network` | مدمج 📦 | حالة الشبكة والواي فاي |
-| `custom/mobile` | **مخصص** 🛠️ | [مؤشر شحن الهاتف](https://github.com/ahmed-x86/mobile_charge_indicator_waybar) |
 | `battery` | مدمج 📦 | مستوى وحالة البطارية |
 | `power-profiles` | مدمج 📦 | أوضاع الطاقة (أداء / توفير) |
 | `pulseaudio` | مدمج 📦 | التحكم بالصوت |

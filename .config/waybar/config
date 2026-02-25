@@ -3,7 +3,7 @@
 
     "modules-center": ["custom/colorpicker", "custom/hijri", "clock", "custom/privacy-dots", "tray"],
     
-    "modules-right": ["mpris", "custom/language", "bluetooth", "network", "custom/mobile", "battery", "power-profiles-daemon", "pulseaudio", "pulseaudio#microphone", "custom/notification"],
+    "modules-right": ["mpris", "custom/language", "bluetooth", "network", "battery", "power-profiles-daemon", "pulseaudio", "pulseaudio#microphone", "custom/notification"],
 
     "custom/power": {
         "format" : "⭘ ",
@@ -86,13 +86,6 @@
         "format": "  {}",
         "on-click": "hyprctl switchxkblayout all next",
         "tooltip": false
-    },
-    "custom/mobile": {
-    "format": "{text}",
-    "exec": "~/.local/bin/mobile",
-    "interval": 30,
-    "return-type": "json",
-    "on-click": "kdeconnect-cli -d XXXXXXXXXXXXXXXXXXXXXXXXXXX --ping" #this is my script https://github.com/ahmed-x86/mobile_charge_indicator_waybar
     },
 
     "tray": {
