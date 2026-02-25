@@ -74,7 +74,6 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | `custom/language` | **Custom** 🛠️ | Keyboard Layout Indicator |
 | `bluetooth` | Built-in 📦 | Bluetooth Status & Connection |
 | `network` | Built-in 📦 | Network & Wi-Fi Status |
-| `custom/mobile` | **Custom** 🛠️ | [Mobile Charge Indicator](https://github.com/ahmed-x86/mobile_charge_indicator_waybar) |
 | `battery` | Built-in 📦 | Battery Level & Status |
 | `power-profiles` | Built-in 📦 | Power Profiles (Performance/Saver) |
 | `pulseaudio` | Built-in 📦 | Volume Control |
