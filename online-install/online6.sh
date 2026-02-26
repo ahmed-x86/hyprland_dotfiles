@@ -66,7 +66,7 @@ echo -e "🎨 Setting default wallpaper..."
 swww query >/dev/null 2>&1 || swww-daemon >/dev/null 2>&1 &
 sleep 1 
 
-# تعيين الخلفي الافتراضية
+
 DEFAULT_WALLPAPER="rwb-porsche-neon-night-rain-desktop-wallpaper.jpg"
 swww img "$WALLPAPER_DIR/$DEFAULT_WALLPAPER" \
     --transition-type grow \
