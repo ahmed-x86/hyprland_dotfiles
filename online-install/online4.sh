@@ -93,6 +93,13 @@ curl -fsSL "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1482459209
 tar -xzf papirus-icon-theme-20250501.tar.gz -C ~/.icons
 rm papirus-icon-theme-20250501.tar.gz
 
+#theme
+
+mkdir -p ~/.themes
+curl -fsSL "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1645385518/Catppuccin-B-MB-dark.tar.xz?response-content-disposition=attachment%3B%2520Catppuccin-B-MB-dark.tar.xz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=RWJAQUNCHT7V2NCLZ2AL%2F20260226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260226T105807Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=945d19411b7e5a9630f00e5d27d33d036f6ad2fa2a8852c6074a4bfac1f1a9fd" -o Catppuccin-B-MB-dark.tar.xz
+tar -xf Catppuccin-B-MB-dark.tar.xz -C ~/.themes
+rm Catppuccin-B-MB-dark.tar.xz
+
 
 echo -e "${GREEN}✅ All files downloaded successfully.${NC}"
 
