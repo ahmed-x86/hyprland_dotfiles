@@ -84,7 +84,6 @@ unzip -qo /tmp/catppuccin.zip -d ~/.themes
 rm /tmp/catppuccin.zip
 
 echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
-# استخدام find أفضل من استخدام * لتجنب مشاكل عدم وجود ملفات
 find "$CONFIG_DIR/viegphunt" "$CONFIG_DIR/waybar" -type f \( -name "*.sh" -o -name "weekly_commits" \) -exec chmod +x {} \;
 
 echo -e "${GREEN}🎉 [Step 4]: Completed! Your dotfiles are ready.${NC}\n"
