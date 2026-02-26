@@ -64,20 +64,18 @@ DOTFILES=(
 )
 
 for file in "${DOTFILES[@]}"; do
-    curl -fsSL "$BASE_URL/$file" -o "$CONFIG_DIR/$file"
+    echo -e "${CYAN}📥 Downloading $file...${NC}"
+    curl -fsSL "$BASE_URL/$file" -o "$CONFIG_DIR/$file" || { echo -e "${RED}❌ Error downloading $file${NC}"; exit 1; }
 done
 
 echo -e "${GREEN}✅ All dotfiles downloaded successfully.${NC}"
 
-
 echo -e "\n${CYAN}🎨 Installing Papirus Icon Theme...${NC}"
 mkdir -p ~/.icons
-
-wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DE3z4STDIR="$HOME/.icons" sh
+curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DE3z4STDIR="$HOME/.icons" sh
 
 echo -e "\n${CYAN}🎨 Installing Catppuccin Theme...${NC}"
 mkdir -p ~/.themes
-
 THEME_URL="https://github.com/catppuccin/gtk/releases/download/v1.0.3/Catppuccin-Mocha-Standard-Blue-Dark.zip"
 curl -fsSL "$THEME_URL" -o /tmp/catppuccin.zip
 unzip -qo /tmp/catppuccin.zip -d ~/.themes
