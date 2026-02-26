@@ -85,6 +85,15 @@ curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.c
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/layout -o "$CONFIG_DIR/wlogout/layout"
 curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config/wlogout/style.css -o "$CONFIG_DIR/wlogout/style.css"
 
+
+
+#icons
+mkdir -p ~/.icons
+curl -fsSL "https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1482459209/papirus-icon-theme-20250501.tar.gz?response-content-disposition=attachment%3B%2520papirus-icon-theme-20250501.tar.gz&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=RWJAQUNCHT7V2NCLZ2AL%2F20260226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260226T111112Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=a69e8106f8b5b8e850631a80297cda498874220bf37ec25232d10154234cfc97" -o papirus-icon-theme-20250501.tar.gz
+tar -xzf papirus-icon-theme-20250501.tar.gz -C ~/.icons
+rm papirus-icon-theme-20250501.tar.gz
+
+
 echo -e "${GREEN}✅ All files downloaded successfully.${NC}"
 
 echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
