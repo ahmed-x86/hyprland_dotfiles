@@ -73,7 +73,7 @@ echo -e "${GREEN}✅ All dotfiles downloaded successfully.${NC}"
 echo -e "\n${CYAN}🎨 Installing Papirus Icon Theme...${NC}"
 mkdir -p ~/.icons
 
-wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
+wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DE3z4STDIR="$HOME/.icons" sh
 
 echo -e "\n${CYAN}🎨 Installing Catppuccin Theme...${NC}"
 mkdir -p ~/.themes
