@@ -109,12 +109,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfi
 إذا كنت تفضل استنساخ المستودع وفحص السكربتات قبل تشغيلها:
 
 استنسخ المستودع:
+اجعل السكربتات قابلة للتنفيذ ثم شغّل المثبت:
+
 ```bash
 git clone https://github.com/ahmed-x86/hyprland_dotfiles
 cd hyprland_dotfiles
-```
-اجعل السكربتات قابلة للتنفيذ ثم شغّل المثبت:
-```bash
 chmod +x *
 ./main.sh
 ```
