@@ -107,13 +107,14 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfi
 
 If you prefer to clone the repository manually and inspect the scripts before running them:
 
-Clone the repository:
+Clone the repository
+
+then Make the scripts executable and run the installer:
+
 ```Bash
 git clone https://github.com/ahmed-x86/hyprland_dotfiles
 cd hyprland_dotfiles
-```
-Make the scripts executable and run the installer:
-```Bash
+
 chmod +x *
 ./main.sh
 ```
