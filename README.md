@@ -1,6 +1,6 @@
 <div align="center">
 
-[**🇸🇦 العربية**](./README_AR.md) | [**🇺🇸 English**]
+[**🇸🇦 العربية**](./README_AR.md) | **🇺🇸 English**
 
 </div>
 
