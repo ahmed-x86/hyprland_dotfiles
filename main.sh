@@ -13,10 +13,10 @@ clear
 
 echo -e "${PINK}
  **********************************************************************
- * ⚠️  \e[1;4mWARNING\e[0m${PINK}:                                    *
- * This script will modify your system!                               *
- * It will install Hyprland and several dependencies.                 *
- * Make sure you know what you are doing before continuing.           *
+ *     \e[1;4mWARNING\e[0m${PINK}:                                    *
+ *                       this my hyprland dotfiles                    *
+ *       the script well install hyprland and dependencies            *
+ *            make sure to take backup for your old config            *
  **********************************************************************
 \n${WHITE}"
 
