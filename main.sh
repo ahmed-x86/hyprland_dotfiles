@@ -16,7 +16,7 @@ echo -e "${PINK}
  *     \e[1;4mWARNING\e[0m${PINK}:                                    *
  *                       this my hyprland dotfiles                    *
  *       the script well install hyprland and dependencies            *
- *            make sure to take backup for your old config            *
+ *              make sure to take backup for your old config          *
  **********************************************************************
 \n${WHITE}"
 
