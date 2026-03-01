@@ -1,0 +1,42 @@
+{
+    "label": "off",
+    "action": "pkill hyprsunset",
+    "text": "  إيقاف",
+    "keybind": "o"
+}
+{
+    "label": "cinema",
+    "action": "bash -c 'pkill hyprsunset; pkill -f hyprsunset; hyprsunset -t 6500 &'",
+    "text": "  أفلام",
+    "keybind": "c"
+}
+{
+    "label": "reading",
+    "action": "bash -c 'pkill hyprsunset; hyprsunset -t 5500 &'",
+    "text": "  قراءة",
+    "keybind": "r"
+}
+{
+    "label": "evening",
+    "action": "bash -c 'pkill hyprsunset; hyprsunset -t 4500 &'",
+    "text": "  مساء",
+    "keybind": "e"
+}
+{
+    "label": "night",
+    "action": "bash -c 'pkill hyprsunset; hyprsunset -t 3500 &'",
+    "text": "  ليلي",
+    "keybind": "n"
+}
+{
+    "label": "deepnight",
+    "action": "bash -c 'pkill hyprsunset; hyprsunset -t 2500 &'",
+    "text": "󰽥  عميق",
+    "keybind": "d"
+}
+{
+    "label": "sleep",
+    "action": "bash -c 'pkill hyprsunset; hyprsunset -t 1500 &'",
+    "text": "  نوم",
+    "keybind": "s"
+}
