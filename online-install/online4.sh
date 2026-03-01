@@ -13,7 +13,8 @@ CONFIG_DIR="$HOME/.config"
 BASE_URL="https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.config"
 
 echo -e "\n${CYAN}📂 Creating necessary directories inside $CONFIG_DIR...${NC}"
-mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts,wlogout/icons}
+
+mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts,wlogout/icons,wlogout/sunset}
 echo -e "${GREEN}✅ Directories created successfully.${NC}"
 
 echo -e "\n${YELLOW}📥 Fetching dotfiles directly from GitHub... Please wait.${NC}"
@@ -61,6 +62,8 @@ DOTFILES=(
     "wlogout/icons/suspend.png"
     "wlogout/layout"
     "wlogout/style.css"
+    "wlogout/sunset/layout"
+    "wlogout/sunset/style.css"
 )
 
 for file in "${DOTFILES[@]}"; do
