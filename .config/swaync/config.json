@@ -101,6 +101,11 @@
                     "active": false,
                     "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && pactl set-sink-mute @DEFAULT_SINK@ 1 || pactl set-sink-mute @DEFAULT_SINK@ 0'",
                     "update-command": "sh -c '[[ $(pactl get-sink-mute @DEFAULT_SINK@) == *yes* ]] && echo true || echo false'"
+                },
+                {
+                    "label": " ",
+                    "type": "button",
+                    "command": "wlogout -l ~/.config/wlogout/sunset/layout -C ~/.config/wlogout/sunset/style.css"
                 }
             ]
         }
