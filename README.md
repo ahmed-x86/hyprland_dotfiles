@@ -53,7 +53,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | Module Name | Type | Description |
 | :--- | :--- | :--- |
 | `custom/power` | Custom 🛠️ | Power Menu / Logout (wlogout) |
-| `custom/gh_heatmap` | **Custom** 🛠️ | [GitHub Activity](https://github.com/ad1822/weekly-github-waybar-module/tree/dev) (Weekly Heatmap) |
+| `custom/gh_heatmap` | Custom 🛠️ | [GitHub Activity](https://github.com/ad1822/weekly-github-waybar-module/tree/dev) (Weekly Heatmap) |
 | `hyprland/workspaces`| Built-in 📦 | Workspace Switcher |
 | `idle_inhibitor` | Built-in 📦 | Toggle to keep screen awake (Coffee Mode) |
 | `custom/update` | **Custom** 🛠️ | System Updates (Pacman/AUR) |
