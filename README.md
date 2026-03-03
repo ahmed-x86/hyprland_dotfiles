@@ -78,7 +78,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | `power-profiles` | Built-in 📦 | Power Profiles (Performance/Saver) |
 | `pulseaudio` | Built-in 📦 | Volume Control |
 | `pulseaudio#mic` | Built-in 📦 | Microphone Control |
-| `custom/notification`| **Custom** 🛠️ | Notification Center Toggle (SwayNC) |
+| `custom/notification`| Custom 🛠️ | Notification Center Toggle (SwayNC) |
 
 <br>
 
