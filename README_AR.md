@@ -79,7 +79,7 @@
 | `power-profiles` | مدمج 📦 | أوضاع الطاقة (أداء / توفير) |
 | `pulseaudio` | مدمج 📦 | التحكم بالصوت |
 | `pulseaudio#mic` | مدمج 📦 | التحكم بالميكروفون |
-| `custom/notification`| **مخصص** 🛠️ | تبديل مركز الإشعارات (SwayNC) |
+| `custom/notification`| مخصص 🛠️ | تبديل مركز الإشعارات (SwayNC) |
 
 <br>
 
