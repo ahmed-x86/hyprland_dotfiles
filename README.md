@@ -71,7 +71,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | Module Name | Type | Description |
 | :--- | :--- | :--- |
 | `mpris` | Built-in 📦 | Media Player Controls |
-| `custom/language` | **Custom** 🛠️ | Keyboard Layout Indicator |
+| `custom/language` | Custom 🛠️ | Keyboard Layout Indicator |
 | `bluetooth` | Built-in 📦 | Bluetooth Status & Connection |
 | `network` | Built-in 📦 | Network & Wi-Fi Status |
 | `battery` | Built-in 📦 | Battery Level & Status |
