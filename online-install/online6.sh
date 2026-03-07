@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 echo -e "\n🔥 [Step 6]: Breathing Life into the Kingdom (swww & Wallpapers)..."
 
@@ -64,8 +66,16 @@ echo -e "🎨 Setting default wallpaper..."
 
 
 swww query >/dev/null 2>&1 || swww-daemon >/dev/null 2>&1 &
-sleep 1 
 
+timeout=0
+while ! swww query >/dev/null 2>&1; do
+    sleep 0.5
+    timeout=$((timeout + 1))
+    if [ $timeout -ge 10 ]; then
+        echo -e "⚠️ Warning: swww-daemon took too long to start."
+        break
+    fi
+done
 
 DEFAULT_WALLPAPER="rwb-porsche-neon-night-rain-desktop-wallpaper.jpg"
 swww img "$WALLPAPER_DIR/$DEFAULT_WALLPAPER" \
