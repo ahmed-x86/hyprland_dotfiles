@@ -75,7 +75,7 @@ echo -e "${GREEN}✅ All dotfiles downloaded successfully.${NC}"
 
 echo -e "\n${CYAN}🎨 Installing Papirus Icon Theme...${NC}"
 mkdir -p ~/.icons
-curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DE3z4STDIR="$HOME/.icons" sh
+curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
 
 echo -e "\n${CYAN}🎨 Installing Catppuccin Theme...${NC}"
 mkdir -p ~/.themes
@@ -83,6 +83,20 @@ THEME_URL="https://github.com/catppuccin/gtk/releases/download/v1.0.3/Catppuccin
 curl -fsSL "$THEME_URL" -o /tmp/catppuccin.zip
 unzip -qo /tmp/catppuccin.zip -d ~/.themes
 rm /tmp/catppuccin.zip
+
+echo -e "\n${CYAN}🖱️ Installing Oreo Blue Cursors...${NC}"
+mkdir -p ~/.icons
+
+if command -v yay &> /dev/null; then
+    echo -e "${YELLOW}📥 Installing Oreo Cursors via AUR using yay...${NC}"
+    yay -S --noconfirm oreo-cursors || true
+    echo -e "${GREEN}✅ Oreo Cursors installed via AUR.${NC}"
+else
+    echo -e "${YELLOW}⚠️ 'yay' is not installed. Attempting direct clone from GitHub...${NC}"
+    git clone https://github.com/varlesh/oreo-cursors.git /tmp/oreo-cursors
+    echo -e "${YELLOW}💡 Note: To fully build it, you might need to run the installer inside /tmp/oreo-cursors later, or simply install yay.${NC}"
+fi
+
 
 echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
 find "$CONFIG_DIR/viegphunt" "$CONFIG_DIR/waybar" -type f \( -name "*.sh" -o -name "weekly_commits" \) -exec chmod +x {} \;
