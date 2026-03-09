@@ -1,29 +1,46 @@
 {
+    "label": "profile",
+    "action": "false",
+    "text": ""
+}
+{
+    "label": "user-text",
+    "action": "false",
+    "text": "ahmed x86_64"
+}
+{
     "label": "lock",
     "action": "hyprlock",
-    "text": "Lock",
+    "text": "",
+    "keybind": "l"
 }
-
 {
     "label": "suspend",
-        "action": "systemctl suspend",
-        "text": "Suspend",
+    "action": "systemctl suspend",
+    "text": "",
+    "keybind": "u"
 }
-
-{
-    "label": "shutdown",
-        "action": "systemctl poweroff",
-        "text": "Shutdown",
-}
-
-{
-    "label": "reboot",
-        "action": "systemctl reboot",
-        "text": "Reboot",
-}
-
 {
     "label": "logout",
-        "action": "hyprctl dispatch exit 0",
-        "text": "Logout",
+    "action": "hyprctl dispatch exit 0",
+    "text": "",
+    "keybind": "e"
+}
+{
+    "label": "reboot",
+    "action": "systemctl reboot",
+    "text": "",
+    "keybind": "r"
+}
+{
+    "label": "shutdown",
+    "action": "systemctl poweroff",
+    "text": "",
+    "keybind": "s"
+}
+{
+    "label": "uefi",
+    "action": "systemctl reboot --firmware-setup",
+    "text": "",
+    "keybind": "f"
 }

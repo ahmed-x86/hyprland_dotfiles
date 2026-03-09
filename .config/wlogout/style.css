@@ -1,68 +1,94 @@
-/* @import "$HOME/.config/colors/colors.css" */
-@import "../colors/colors.css";
+@import "../colors/colors.css"; /* تأكد إن مسار الألوان صح أو استخدم تعريفات الألوان اللي عندك */
 
-@keyframes glowing {
-    0% {
-        box-shadow: 0 0 30px @pink;
-    }
-    20% {
-        box-shadow: 0 0 30px @pink;
-    }
-    80% {
-        box-shadow: 0 0 30px @foreground;
-    }
-    100% {
-        box-shadow: 0 0 30px @blue;
-    }
-}
+/* تعريفات Catppuccin السريعة لو مش عامل Import */
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color text   #cdd6f4;
+@define-color blue   #89b4fa;
+@define-color red    #f38ba8;
 
 * {
     background-image: none;
     font-family: "JetBrainsMono Nerd Font";
-    transition: 20ms;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 window {
-    background: rgba(0, 0, 0, 0.3);
-    font-size: 0px;
+    background-color: rgba(17, 17, 27, 0.8); /* خلفية الشاشة سوداء شفافة */
 }
 
+grid {
+    background-color: @base;
+    border-radius: 30px;
+    margin: 50px 400px; /* تحكم في عرض الكارت هنا */
+    padding: 30px;
+    border: 2px solid @blue;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* التنسيق العام لكل الأزرار */
 button {
-    background: transparent;
-    outline-style: none;
-    border: none;
-    border-width: 0px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50%;
-    border-radius: 60px;
+    color: @text;
+    background-color: @mantle;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    margin: 5px;
     box-shadow: none;
-    text-shadow: none;
-    animation: gradient_f 10s ease-in infinite;
+    font-size: 24px;
 }
 
 button:hover {
-    background-size: 60%;
-    animation: glowing 1s infinite alternate;
-    outline-style: none;
+    background-color: @blue;
+    color: @base;
+    border-radius: 20px;
+    animation: none; /* إلغاء أي انيميشن قديم */
 }
 
-#lock {
-    background-image: image(url("./icons/lock.png"));
+/* -----------------------------------------------------
+   1. تنسيق الصورة الشخصية
+   ----------------------------------------------------- */
+#profile {
+    /* استدعاء الصورة من مجلد icons */
+    background-image: image(url("icons/ahmed.png"));
+    background-size: cover; /* عشان الصورة تملأ الدائرة */
+    background-position: center;
+  /*  border-radius: 100px;  جعلها دائرية تماماً */
+    margin: 10px 100px; /* تضييق الهوامش لتصغير حجم الزرار */
+    min-height: 150px; /* ارتفاع الصورة */
+    min-width: 150px;
+    border: 3px solid @blue;
+    box-shadow: 0 0 15px rgba(137, 180, 250, 0.5);
 }
 
-#suspend {
-    background-image: image(url("./icons/suspend.png"));
+/* إلغاء تأثيرات الهوفر على الصورة */
+#profile:hover {
+    background-color: transparent;
+    box-shadow: 0 0 15px rgba(137, 180, 250, 0.5);
 }
 
-#shutdown {
-    background-image: image(url("./icons/shutdown.png"));
+/* -----------------------------------------------------
+   2. تنسيق اسم المستخدم
+   ----------------------------------------------------- */
+#user-text {
+    background-color: transparent;
+    color: @text;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border: none;
 }
 
-#reboot {
-    background-image: image(url("./icons/reboot.png"));
+#user-text:hover {
+    background-color: transparent;
+    color: @blue;
 }
 
-#logout {
-    background-image: image(url("./icons/logout.png"));
-}
+/* -----------------------------------------------------
+   3. تخصيص ألوان الأزرار عند الهوفر
+   ----------------------------------------------------- */
+#lock:hover { background-color: #89b4fa; }     /* Blue */
+#suspend:hover { background-color: #74c7ec; }  /* Sapphire */
+#logout:hover { background-color: #cba6f7; }   /* Mauve */
+#reboot:hover { background-color: #94e2d5; }   /* Teal */
+#shutdown:hover { background-color: #f38ba8; } /* Red */
+#uefi:hover { background-color: #fab387; } /* Peach */
