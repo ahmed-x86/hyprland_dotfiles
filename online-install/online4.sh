@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
@@ -15,7 +16,7 @@ BASE_URL="https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.co
 
 echo -e "\n${CYAN}📂 Creating necessary directories inside $CONFIG_DIR...${NC}"
 
-mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts,wlogout/icons,wlogout/sunset}
+mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,kitty,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts/Assets,wlogout/icons,wlogout/sunset}
 echo -e "${GREEN}✅ Directories created successfully.${NC}"
 
 echo -e "\n${YELLOW}📥 Fetching dotfiles directly from GitHub... Please wait.${NC}"
@@ -49,18 +50,13 @@ DOTFILES=(
     "viegphunt/wallpaper_effects.sh"
     "viegphunt/wallpaper_random.sh"
     "viegphunt/wallpaper_select.sh"
-    "waybar/scripts/.env"
     "waybar/scripts/hijri.sh"
     "waybar/scripts/weekly_commits"
     "waybar/config"
     "waybar/get_lang.sh"
     "waybar/style.css"
     "waybar/updates.sh"
-    "wlogout/icons/lock.png"
-    "wlogout/icons/logout.png"
-    "wlogout/icons/reboot.png"
-    "wlogout/icons/shutdown.png"
-    "wlogout/icons/suspend.png"
+    "wlogout/icons/ahmed.png"
     "wlogout/layout"
     "wlogout/style.css"
     "wlogout/sunset/layout"
@@ -97,7 +93,6 @@ else
     git clone https://github.com/varlesh/oreo-cursors.git /tmp/oreo-cursors
     echo -e "${YELLOW}💡 Note: To fully build it, you might need to run the installer inside /tmp/oreo-cursors later, or simply install yay.${NC}"
 fi
-
 
 echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
 find "$CONFIG_DIR/viegphunt" "$CONFIG_DIR/waybar" -type f \( -name "*.sh" -o -name "weekly_commits" \) -exec chmod +x {} \;
