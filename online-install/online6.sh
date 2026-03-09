@@ -62,25 +62,34 @@ done
 
 echo -e "✅ Wallpapers downloaded successfully."
 
-echo -e "🎨 Setting default wallpaper..."
-
-
-swww query >/dev/null 2>&1 || swww-daemon >/dev/null 2>&1 &
-
-timeout=0
-while ! swww query >/dev/null 2>&1; do
-    sleep 0.5
-    timeout=$((timeout + 1))
-    if [ $timeout -ge 10 ]; then
-        echo -e "⚠️ Warning: swww-daemon took too long to start."
-        break
-    fi
-done
-
+echo -e "🎨 Checking display environment..."
 DEFAULT_WALLPAPER="rwb-porsche-neon-night-rain-desktop-wallpaper.jpg"
-swww img "$WALLPAPER_DIR/$DEFAULT_WALLPAPER" \
-    --transition-type grow \
-    --transition-pos 0.5,0.5 \
-    --transition-step 90
+
+
+if [ -n "${WAYLAND_DISPLAY:-}" ]; then
+    echo -e "👁️ Wayland session detected. Applying wallpaper via swww..."
+    
+    swww query >/dev/null 2>&1 || swww-daemon >/dev/null 2>&1 &
+
+    timeout=0
+    while ! swww query >/dev/null 2>&1; do
+        sleep 0.5
+        timeout=$((timeout + 1))
+        if [ $timeout -ge 10 ]; then
+            echo -e "⚠️ Warning: swww-daemon took too long to start."
+            break
+        fi
+    done
+
+    swww img "$WALLPAPER_DIR/$DEFAULT_WALLPAPER" \
+        --transition-type grow \
+        --transition-pos 0.5,0.5 \
+        --transition-step 90
+        
+    echo -e "✅ Wallpaper applied directly."
+else
+    echo -e "ℹ️ TTY / Non-Wayland environment detected."
+    echo -e "ℹ️ Wallpapers are ready and will be applied automatically when you launch Hyprland."
+fi
 
 echo -e "🎉 Setup COMPLETE for user: $USER\n"
