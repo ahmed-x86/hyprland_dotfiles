@@ -62,7 +62,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | Module Name | Type | Description |
 | :--- | :--- | :--- |
 | `custom/colorpicker` | Custom 🛠️ | Screen Color Picker Tool |
-| `custom/hijri` | Custom 🛠️ | Hijri Calendar Date (**For Muslims**) |
+| `custom/hijri` | Custom 🛠️ | [Hijri Calendar & Tooltip](https://github.com/ahmed-x86/waybar_hijri_calendar) (**For Muslims**) ||
 | `clock` | Built-in 📦 | Time & Gregorian Date |
 | `custom/privacy-dots`| Custom 🛠️ | [Privacy Dots (Mic, Camera, Location)](https://github.com/alvaniss/privacy-dots) |
 | `tray` | Built-in 📦 | System Tray Icons |
