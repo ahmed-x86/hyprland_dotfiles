@@ -63,7 +63,7 @@
 | اسم الوحدة | النوع | الوصف |
 | :--- | :--- | :--- |
 | `custom/colorpicker` | **مخصص** 🛠️ | أداة اختيار لون من الشاشة |
-| `custom/hijri` | **مخصص** 🛠️ | التاريخ الهجري (للمسلمين) |
+| `custom/hijri` | **مخصص** 🛠️ | [التقويم الهجري (للمسلمين)](https://github.com/ahmed-x86/waybar_hijri_calendar) |
 | `clock` | مدمج 📦 | الوقت والتاريخ الميلادي |
 | `custom/privacy-dots`| **مخصص** 🛠️ | [مؤشرات الخصوصية (مايك, كاميرا, موقع)](https://github.com/alvaniss/privacy-dots) |
 | `tray` | مدمج 📦 | أيقونات شريط النظام |
