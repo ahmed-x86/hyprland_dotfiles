@@ -90,4 +90,3 @@ echo -e "${PINK}=========================================${WHITE}"
 echo -e "${GREEN}Time elapsed: ${formatted_time}${WHITE}"
 echo -e "${PINK}=========================================${WHITE}"
 echo -e "\n${GREEN}\e[1mmission complete\e[0m\n"
-#for tets
