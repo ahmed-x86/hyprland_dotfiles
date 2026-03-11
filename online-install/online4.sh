@@ -16,7 +16,8 @@ BASE_URL="https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/main/.co
 
 echo -e "\n${CYAN}📂 Creating necessary directories inside $CONFIG_DIR...${NC}"
 
-mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,kitty,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts/Assets,wlogout/icons,wlogout/sunset}
+
+mkdir -p "$CONFIG_DIR"/{cava,hypr/conf,hypr/scripts,hypr/sounds,kitty,nwg-look,rofi,swaync,swayosd,viegphunt,waybar/scripts/Assets,wlogout/icons,wlogout/sunset}
 echo -e "${GREEN}✅ Directories created successfully.${NC}"
 
 echo -e "\n${YELLOW}📥 Fetching dotfiles directly from GitHub... Please wait.${NC}"
@@ -35,8 +36,17 @@ DOTFILES=(
     "hypr/conf/programs.conf"
     "hypr/conf/windowrule.conf"
     "hypr/conf/workspaces.conf"
+    "hypr/hypridle.conf"
     "hypr/hyprland.conf"
     "hypr/hyprlock.conf"
+    "hypr/scripts/startup_sound.sh"
+    "hypr/scripts/sunset-osd.sh"
+    "hypr/sounds/47313572-soft-startup-sound-269291.mp3"
+    "hypr/sounds/elementary_stereo_audio-volume-change.wav"
+    "hypr/sounds/freesound_community-retro-audio-logo-94648.mp3"
+    "hypr/sounds/snorcon-low-battery-charge-421814.mp3"
+    "hypr/sounds/spinopel-insert-charging-cable-into-smartphone-393115.mp3"
+    "hypr/sounds/universfield-smooth-gadget-activation-sound-250072.mp3"
     "nwg-look/config"
     "rofi/config.rasi"
     "swaync/config.json"
@@ -50,7 +60,12 @@ DOTFILES=(
     "viegphunt/wallpaper_effects.sh"
     "viegphunt/wallpaper_random.sh"
     "viegphunt/wallpaper_select.sh"
-    "waybar/scripts/hijri.sh"
+    "waybar/scripts/Assets/dark.png"
+    "waybar/scripts/Assets/image-1.png"
+    "waybar/scripts/Assets/image-2.png"
+    "waybar/scripts/Assets/image.png"
+    "waybar/scripts/Assets/white.png"
+    "waybar/scripts/hijri_waybar.py"
     "waybar/scripts/weekly_commits"
     "waybar/config"
     "waybar/get_lang.sh"
@@ -68,33 +83,10 @@ for file in "${DOTFILES[@]}"; do
     curl -fsSL "$BASE_URL/$file" -o "$CONFIG_DIR/$file" || { echo -e "${RED}❌ Error downloading $file${NC}"; exit 1; }
 done
 
-echo -e "${GREEN}✅ All dotfiles downloaded successfully.${NC}"
 
-echo -e "\n${CYAN}🎨 Installing Papirus Icon Theme...${NC}"
-mkdir -p ~/.icons
-curl -fsSL https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | DESTDIR="$HOME/.icons" sh
-
-echo -e "\n${CYAN}🎨 Installing Catppuccin Theme...${NC}"
-mkdir -p ~/.themes
-THEME_URL="https://github.com/catppuccin/gtk/releases/download/v1.0.3/Catppuccin-Mocha-Standard-Blue-Dark.zip"
-curl -fsSL "$THEME_URL" -o /tmp/catppuccin.zip
-unzip -qo /tmp/catppuccin.zip -d ~/.themes
-rm /tmp/catppuccin.zip
-
-echo -e "\n${CYAN}🖱️ Installing Oreo Blue Cursors...${NC}"
-mkdir -p ~/.icons
-
-if command -v yay &> /dev/null; then
-    echo -e "${YELLOW}📥 Installing Oreo Cursors via AUR using yay...${NC}"
-    yay -S --noconfirm oreo-cursors || true
-    echo -e "${GREEN}✅ Oreo Cursors installed via AUR.${NC}"
-else
-    echo -e "${YELLOW}⚠️ 'yay' is not installed. Attempting direct clone from GitHub...${NC}"
-    git clone https://github.com/varlesh/oreo-cursors.git /tmp/oreo-cursors
-    echo -e "${YELLOW}💡 Note: To fully build it, you might need to run the installer inside /tmp/oreo-cursors later, or simply install yay.${NC}"
-fi
 
 echo -e "\n${CYAN}🔒 Setting execution permissions for scripts...${NC}"
-find "$CONFIG_DIR/viegphunt" "$CONFIG_DIR/waybar" -type f \( -name "*.sh" -o -name "weekly_commits" \) -exec chmod +x {} \;
+
+find "$CONFIG_DIR/viegphunt" "$CONFIG_DIR/waybar" "$CONFIG_DIR/hypr/scripts" -type f \( -name "*.sh" -o -name "*.py" -o -name "weekly_commits" \) -exec chmod +x {} \;
 
 echo -e "${GREEN}🎉 [Step 4]: Completed! Your dotfiles are ready.${NC}\n"
