@@ -8,57 +8,48 @@ GREEN="\e[1;32m"
 RED="\e[1;31m"
 CYAN="\e[1;36m"
 
-echo -e "\n🔥 [Step 7]: The GitHub Ecosystem Integration (Waybar Radar)..."
+echo -e "\n🔥 [Step 7]: The Ecosystem Integration (GitHub & Mobile)..."
 
+# ==========================================
+# 1. GitHub Integration
+# ==========================================
 ENV_FILE="$HOME/.config/waybar/scripts/.env"
 
 while true; do
     echo -e "${CYAN}🐙 Do you want to integrate your GitHub account to show stats on your Waybar? (y/n)${WHITE}"
     read -r -p "> " choice
-
-    # Convert input to lowercase to handle 'Y', 'y', 'N', 'n'
     choice=${choice,,}
 
     if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
         echo -e "\n${YELLOW}Awesome! Let's set up your GitHub integration.${WHITE}"
         
-        # Get Username
         read -r -p "Enter your GitHub Username: " github_user
         while [[ -z "$github_user" ]]; do
             echo -e "${RED}Username cannot be empty!${WHITE}"
             read -r -p "Enter your GitHub Username: " github_user
         done
 
-        # Get Personal Access Token (PAT)
         read -r -s -p "Enter your GitHub Personal Access Token (PAT): " github_token
-        echo "" # To add a newline after the hidden password input
+        echo "" 
         while [[ -z "$github_token" ]]; do
             echo -e "${RED}Token cannot be empty!${WHITE}"
             read -r -s -p "Enter your GitHub Personal Access Token (PAT): " github_token
             echo ""
         done
 
-        # Create or Overwrite the .env file with the new data
         echo -e "⚙️  Writing credentials to $ENV_FILE..."
-        
-        # Make sure the directory exists just in case
         mkdir -p "$(dirname "$ENV_FILE")"
 
         cat > "$ENV_FILE" <<EOF
 GITHUB_USERNAME=$github_user
 GITHUB_PAT=$github_token
 EOF
-
-        # Secure the file so only the user can read it (since it contains a token)
         chmod 600 "$ENV_FILE"
-
-        echo -e "   ✔️ GitHub credentials saved securely!"
+        echo -e "   ${GREEN}✔️ GitHub credentials saved securely!${WHITE}"
         break
 
     elif [[ "$choice" == "n" || "$choice" == "no" ]]; then
         echo -e "\n${YELLOW}⏭️  Skipping GitHub integration. You can always set it up later manually.${WHITE}"
-        
-        # Create an empty .env file just so the python script doesn't crash looking for it
         mkdir -p "$(dirname "$ENV_FILE")"
         cat > "$ENV_FILE" <<EOF
 GITHUB_USERNAME=
@@ -67,11 +58,62 @@ EOF
         break
 
     else
-        # If the user types anything else, the loop continues
         echo -e "${RED}![Error]: Invalid input. Please type 'y' for yes, or 'n' for no.${WHITE}\n"
     fi
 done
 
+# ==========================================
+# 2. Mobile Integration (KDE Connect)
+# ==========================================
+echo -e "\n------------------------------------------------------"
+
+while true; do
+    echo -e "${CYAN}📱 Do you want to set up the Mobile Ecosystem (KDE Connect)? (y/n)${WHITE}"
+    read -r -p "> " mobile_choice
+    mobile_choice=${mobile_choice,,}
+
+    if [[ "$mobile_choice" == "y" || "$mobile_choice" == "yes" ]]; then
+        echo -e "\n${YELLOW}Awesome! Let's connect your devices.${WHITE}"
+        
+        # Check and configure UFW if active
+        if command -v ufw >/dev/null 2>&1; then
+            if sudo ufw status | grep -qi "active"; then
+                echo -e "🛡️  UFW Firewall is active. Opening ports for KDE Connect (1714-1764)..."
+                sudo ufw allow 1714:1764/tcp >/dev/null
+                sudo ufw allow 1714:1764/udp >/dev/null
+                sudo ufw reload >/dev/null
+                echo -e "   ${GREEN}✔️ Ports opened successfully!${WHITE}"
+            fi
+        fi
+
+        PC_NAME=$(hostname)
+        echo -e "\n${CYAN}📲 Grab your phone and open the KDE Connect app.${WHITE}"
+        echo -e "${CYAN}🔍 Look for this PC name in the app: ${PINK}${PC_NAME}${WHITE}"
+        
+        echo -e "\n${YELLOW}🔄 Refreshing KDE Connect daemon...${WHITE}"
+        kdeconnect-cli --refresh >/dev/null 2>&1 || true
+        
+        echo -e "${CYAN}📡 Please tap on '${PC_NAME}' on your phone and request pairing.${WHITE}"
+        echo -e "🔔 ${YELLOW}A notification will pop up here on your PC screen. Click 'Accept'.${WHITE}"
+        
+        # Wait for the user to finish pairing
+        echo ""
+        read -r -p "Press [Enter] when you have successfully paired to continue..."
+        echo -e "   ${GREEN}✔️ Mobile ecosystem ready!${WHITE}"
+        break
+
+    elif [[ "$mobile_choice" == "n" || "$mobile_choice" == "no" ]]; then
+        echo -e "\n${YELLOW}⏭️  Skipping Mobile integration.${WHITE}"
+        break
+
+    else
+        echo -e "${RED}![Error]: Invalid input. Please type 'y' for yes, or 'n' for no.${WHITE}\n"
+    fi
+done
+
+# ==========================================
+# 3. Final Wrap-up
+# ==========================================
 echo -e "\n✅ [Step 7]: Ecosystem integration complete!"
 echo -e "🎉 CONGRATULATIONS! The setup is 100% COMPLETE! 🎉\n"
 echo -e "${PINK}Please REBOOT your system to apply all changes smoothly.${WHITE}\n"
