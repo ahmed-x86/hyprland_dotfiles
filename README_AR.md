@@ -24,8 +24,9 @@
 
 ## ✨ المميزات
 - **سريع وخفيف:** مبني على Arch Linux مع مدير العرض Hyprland (Wayland).
+- **بيئة عمل متكاملة (Ecosystem):** إعداد تفاعلي سلس لربط حسابك على GitHub (المساهمات والرادار) وهاتفك المحمول (عبر KDE Connect).
 - **واجهة جمالية:** دمج متناسق لثيم Catppuccin على مستوى النظام وتطبيقات GTK والطرفية.
-- **Waybar متقدم:** شريط حالة معياري مع وحدات مخصصة (تقويم هجري، نقاط خصوصية ديناميكية، خريطة نشاط GitHub، مؤشر شحن الهاتف).
+- **Waybar متقدم:** شريط حالة معياري مع وحدات مخصصة (تقويم هجري، نقاط خصوصية ديناميكية، خريطة نشاط GitHub، دمج الهاتف المحمول).
 - **حركات سلسة:** إدارة نوافذ وانتقالات انسيابية.
 
 ## 🛠️ البرامج والأدوات
@@ -42,6 +43,7 @@
 | **قائمة تسجيل الخروج** | [wlogout](https://github.com/ArtsyMacaw/wlogout) |
 | **عارض الصوت المرئي** | [Cava](https://github.com/karlstav/cava) |
 | **إعدادات GTK** | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
+| **ربط الهاتف** | [KDE Connect](https://kdeconnect.kde.org/) |
 | **الثيم** | [Catppuccin](https://github.com/catppuccin/catppuccin) |
 | **الخلفيات** | [swww](https://github.com/LGFae/swww) |
 <br>
@@ -54,7 +56,8 @@
 | اسم الوحدة | النوع | الوصف |
 | :--- | :--- | :--- |
 | `custom/power` | **مخصص** 🛠️ | قائمة الطاقة / تسجيل الخروج (wlogout) |
-| `custom/gh_heatmap` | **مخصص** 🛠️ | نشاط GitHub (خريطة أسبوعية) |
+| `custom/gh_heatmap` | **مخصص** 🛠️ | [نشاط GitHub (المساهمات المستمرة)](https://github.com/ahmed-x86/waybar-github-rolling-contributions) |
+| `custom/gh_radar` | **مخصص** 🛠️ | [رادار GitHub](https://ahmed-x86.github.io/gh_radar.html) |
 | `hyprland/workspaces`| مدمج 📦 | مبدّل مساحات العمل |
 | `idle_inhibitor` | مدمج 📦 | إبقاء الشاشة نشطة (وضع القهوة ☕) |
 | `custom/update` | **مخصص** 🛠️ | تحديثات النظام (Pacman/AUR) |
@@ -95,25 +98,23 @@
 
 > **⚠️ ملاحظة:** يُرجى أخذ نسخة احتياطية من إعداداتك الحالية قبل المتابعة حتى لا تفقد إعدادك الحالي.
 
-يمكنك تثبيت هذه الملفات بطريقتين:  
-إما **أونلاين (أمر واحد)** أو **أوفلاين (يدويًا)**. اختر ما يناسبك.
+يمكنك تثبيت هذه الملفات إما عن طريق **الإنترنت (أمر واحد)** أو **محليًا (يدويًا)**. سيرشدك المُثبّت تلقائيًا لإعداد بيئة العمل المتكاملة (ربط GitHub والهاتف المحمول). اختر ما يناسبك!
 
-### 🌐 الطريقة الأولى: التثبيت عبر الإنترنت
+### 🌐 الطريقة الأولى: التثبيت عبر الإنترنت (مستحسن ومؤتمت بالكامل)
 أسرع طريقة لتشغيل كل شيء. فقط الصق هذا الأمر في الطرفية:
-#### غير مكتمل بعد.
+
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh )" 
-```
-### 📦 الطريقة الثانية: التثبيت اليدوي (مستحسن)
+bash -c "$(curl -fsSL [https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh](https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh) )" 
+````
+
+### 📦 الطريقة الثانية: التثبيت اليدوي
 
 إذا كنت تفضل استنساخ المستودع وفحص السكربتات قبل تشغيلها:
 
-استنسخ المستودع
-
-ثم اجعل السكربتات قابلة للتنفيذ ثم شغّل المثبت
+استنسخ المستودع، اجعل السكربتات قابلة للتنفيذ، ثم شغّل المثبت:
 
 ```bash
-git clone https://github.com/ahmed-x86/hyprland_dotfiles
+git clone [https://github.com/ahmed-x86/hyprland_dotfiles](https://github.com/ahmed-x86/hyprland_dotfiles)
 cd hyprland_dotfiles
 chmod +x *
 ./main.sh
@@ -121,13 +122,13 @@ chmod +x *
 
 
 📸 المعرض
-<div align="center">
-<img src="screenshot_2026-02-07_10-21-48.png" width="48%" title="Desktop View 1" />
-<img src="screenshot_2026-02-07_17-03-54.png" width="48%" title="Desktop View 2" />
 
+\<div align="center"\>
+\<img src="screenshot\_2026-02-07\_10-21-48.png" width="48%" title="Desktop View 1" /\>
+\<img src="screenshot\_2026-02-07\_17-03-54.png" width="48%" title="Desktop View 2" /\>
 
-<img src="screenshot_2026-02-07_19-22-20.png" width="48%" title="Desktop View 3" />
-<img src="screenshot_2026-02-07_19-23-34.png" width="48%" title="Desktop View 4" />
-</div>
+\<img src="screenshot\_2026-02-07\_19-22-20.png" width="48%" title="Desktop View 3" /\>
+\<img src="screenshot\_2026-02-07\_19-23-34.png" width="48%" title="Desktop View 4" /\>
+\</div\>
 
 ---
