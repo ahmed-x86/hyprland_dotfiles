@@ -199,9 +199,7 @@ tooltip {
     font-style: italic;
 }
 
-/* -----------------------------------------------------
-   System Updates (تحديثات النظام)
-   ----------------------------------------------------- */
+
 #custom-update {
     background-color: rgba(203, 166, 247, 1); /* Mauve */
     color: #1e1e2e; /* Base */
@@ -217,14 +215,37 @@ tooltip {
     transition: all 0.3s ease;
 }
 
-/* لون النص والتنسيق للموديول الهجري */
-.custom-hijri {
-    color: #f9e2af;          /* Yellow (Catppuccin) */
+
+/* Hijri Calendar - Catppuccin Mocha */
+#custom-hijri {
+    color: #f9e2af;
     font-weight: bold;
     font-size: 14px;
     padding: 0 8px;
+    transition: all 0.3s ease;
+}
+#custom-hijri:hover {
+    color: #fab387;
+}
+#custom-hijri.error {
+    color: #f38ba8; 
+    background-color: rgba(243, 139, 168, 0.1);
 }
 
-.custom-hijri:hover {
-    color: #fab387;          /* Peach */
+/* GitHub Radar - Catppuccin Mocha Theme */
+#custom-github-radar {
+    background-color: #1e1e2e; /* Base */
+    color: #cdd6f4; /* Text */
+    border-radius: 10px;
+    padding: 0px 10px;
+    margin: 4px 5px;
+    font-weight: bold;
+    border: 1px solid #313244; /* Surface0 */
+    transition: all 0.3s ease;
+}
+
+#custom-github-radar:hover {
+    background-color: #a6e3a1; /* Green */
+    color: #11111b; /* Crust for contrast */
+    border-color: #a6e3a1;
 }
