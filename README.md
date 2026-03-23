@@ -23,8 +23,9 @@ Welcome to my personal **Hyprland** configuration (dotfiles). This setup is desi
 
 ## ✨ Features
 - **Fast & Lightweight:** Built on top of Arch Linux with the Hyprland Wayland compositor.
+- **The Ecosystem Experience:** Seamless, interactive setup to integrate your GitHub account (Rolling Contributions & Radar) and Mobile device (via KDE Connect).
 - **Aesthetic UI:** Consistent Catppuccin theme integration across the system, GTK apps, and terminal.
-- **Advanced Waybar:** Highly modular status bar with bespoke custom modules (Hijri calendar, dynamic privacy dots, GitHub heatmap, mobile charge indicator).
+- **Advanced Waybar:** Highly modular status bar with bespoke custom modules (Hijri calendar, dynamic privacy dots, GitHub heatmap, mobile integration).
 - **Smooth Animations:** Fluid window management and transitions.
 
 ## 🛠️ Software & Tools
@@ -41,6 +42,7 @@ Welcome to my personal **Hyprland** configuration (dotfiles). This setup is desi
 | **Logout Menu** | [wlogout](https://github.com/ArtsyMacaw/wlogout) |
 | **Audio Visualizer** | [Cava](https://github.com/karlstav/cava) |
 | **GTK Settings** | [nwg-look](https://github.com/nwg-piotr/nwg-look) |
+| **Mobile Integration** | [KDE Connect](https://kdeconnect.kde.org/) |
 | **Theme** | [Catppuccin](https://github.com/catppuccin/catppuccin) |
 | **Wallpaper** | [swww](https://github.com/LGFae/swww) |
 <br>
@@ -53,7 +55,8 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | Module Name | Type | Description |
 | :--- | :--- | :--- |
 | `custom/power` | Custom 🛠️ | Power Menu / Logout (wlogout) |
-| `custom/gh_heatmap` | Custom 🛠️ | [GitHub Activity (Weekly Heatmap)](https://github.com/ad1822/weekly-github-waybar-module/tree/dev)  |
+| `custom/gh_heatmap` | Custom 🛠️ | [GitHub Activity (Rolling Contributions)](https://github.com/ahmed-x86/waybar-github-rolling-contributions)  |
+| `custom/gh_radar` | Custom 🛠️ | [GitHub Radar](https://ahmed-x86.github.io/gh_radar.html) |
 | `hyprland/workspaces`| Built-in 📦 | Workspace Switcher |
 | `idle_inhibitor` | Built-in 📦 | Toggle to keep screen awake (Coffee Mode) |
 | `custom/update` | Custom 🛠️ | System Updates (Pacman/AUR) |
@@ -62,7 +65,7 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 | Module Name | Type | Description |
 | :--- | :--- | :--- |
 | `custom/colorpicker` | Custom 🛠️ | Screen Color Picker Tool |
-| `custom/hijri` | Custom 🛠️ | [Hijri Calendar & Tooltip](https://github.com/ahmed-x86/waybar_hijri_calendar) (**For Muslims**) ||
+| `custom/hijri` | Custom 🛠️ | [Hijri Calendar & Tooltip](https://github.com/ahmed-x86/waybar_hijri_calendar) (**For Muslims**) |
 | `clock` | Built-in 📦 | Time & Gregorian Date |
 | `custom/privacy-dots`| Custom 🛠️ | [Privacy Dots (Mic, Camera, Location)](https://github.com/alvaniss/privacy-dots) |
 | `tray` | Built-in 📦 | System Tray Icons |
@@ -94,27 +97,24 @@ Here is a detailed breakdown of the modules used in my Waybar setup:
 
 > **⚠️ Note:** Please back up your existing configurations before proceeding to avoid losing your current setup.
 
-You can install these dotfiles using either the **Online** (One-Command) method or the **Offline** (Manual) method. Choose whichever suits you best!
+You can install these dotfiles using either the **Online** (One-Command) method or the **Offline** (Manual) method. The installer will natively guide you to set up the full ecosystem (GitHub + Mobile Integration). Choose whichever suits you best!
 
-### 🌐 Method 1: Online Install 
+### 🌐 Method 1: Online Install (Recommended & Fully Automated)
 The fastest way to get everything up and running. Just paste this single command into your terminal:
-#### It's not complete yet.
+
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh )" 
+bash -c "$(curl -fsSL [https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh](https://raw.githubusercontent.com/ahmed-x86/hyprland_dotfiles/refs/heads/main/online-install.sh))"
 ```
 
-### 📦 Method 2: Offline Install (Recommended)
+📦 Method 2: Offline Install
 
 If you prefer to clone the repository manually and inspect the scripts before running them:
 
-Clone the repository
-
-then Make the scripts executable and run the installer:
+Clone the repository, make the scripts executable, and run the installer:
 
 ```Bash
 git clone https://github.com/ahmed-x86/hyprland_dotfiles
 cd hyprland_dotfiles
-
 chmod +x *
 ./main.sh
 ```
