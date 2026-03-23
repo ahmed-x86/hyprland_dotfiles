@@ -1,25 +1,36 @@
 {
-    "modules-left": ["custom/power", "custom/gh_heatmap", "hyprland/workspaces", "idle_inhibitor", "custom/update"],
+    "reload_style_on_change": true,
+
+    "modules-left": ["custom/power", "custom/gh_heatmap", "hyprland/workspaces", "idle_inhibitor", "custom/update", "custom/github-radar"],
 
     "modules-center": ["custom/colorpicker", "custom/hijri", "clock", "custom/privacy-dots", "tray"],
     
-    "modules-right": ["mpris", "custom/language", "bluetooth", "network", "battery", "power-profiles-daemon", "pulseaudio", "pulseaudio#microphone", "custom/notification"],
+    "modules-right": ["mpris", "custom/language", "bluetooth", "network", "custom/mobile", "battery", "power-profiles-daemon", "pulseaudio", "pulseaudio#microphone", "custom/notification"],
 
     "custom/power": {
         "format" : "⭘ ",
         "tooltip": false,
-        "on-click": "wlogout -b 5",
+        "on-click": "wlogout -b 2",
     },
 
+    "custom/github-radar": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/github_radar.py my_repos_only -t 0 -icon 7",
+        "on-click": "xdg-open https://github.com/ahmed-x86",
+        "on-click-right": "xdg-open https://github.com/notifications",
+        "on-click-middle": "pkill -USR1 -f github_radar.py",
+        "restart-interval": 0
+    },
 
     "custom/hijri": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/hijri.sh",
+        "exec": "~/.config/waybar/scripts/hijri_waybar.py -lang ar",
         "return-type": "json",
         "interval": 3600,
-        "tooltip": true
+        "tooltip": true,
+        "on-click": "show-tooltip"
     },
-
 
     "custom/update": {
         "format": "<span foreground=\"black\">{}  <big></big></span>",
@@ -87,6 +98,13 @@
         "on-click": "hyprctl switchxkblayout all next",
         "tooltip": false
     },
+    "custom/mobile": {
+        "format": "{text}",
+        "exec": "~/.config/waybar/scripts/mobile.sh",
+        "interval": 30,
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/mobile.sh --ping" 
+    },
 
     "tray": {
         "icon-size": 20,
@@ -109,7 +127,6 @@
         "tooltip": false,
     },
     
-
     
     "custom/privacy-dots": {
         "exec": "privacy-dots",
@@ -180,9 +197,6 @@
         "on-click": "show-tooltip"
     },
 
-
-
-    
     "custom/colorpicker": {
         "format": " ",
         "on-click": "bash -c 'hyprpicker -a | xargs -I {} notify-send \"Color Picked\" \"{}\"'",
