@@ -8,8 +8,11 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-echo -e "\n${BLUE}🔥 [Online Step 7]: The GitHub Ecosystem Integration (Waybar Radar)...${NC}"
+echo -e "\n${BLUE}🔥 [Online Step 7]: The Ecosystem Integration (GitHub & Mobile)...${NC}"
 
+# ==========================================
+# 1. GitHub Integration
+# ==========================================
 ENV_FILE="$HOME/.config/waybar/scripts/.env"
 
 while true; do
@@ -62,6 +65,57 @@ EOF
     fi
 done
 
+# ==========================================
+# 2. Mobile Integration (KDE Connect)
+# ==========================================
+echo -e "\n${BLUE}------------------------------------------------------${NC}"
+
+while true; do
+    echo -e "${CYAN}📱 Do you want to set up the Mobile Ecosystem (KDE Connect)? (y/n)${NC}"
+    read -r -p "> " mobile_choice < /dev/tty || mobile_choice="n"
+    mobile_choice=${mobile_choice,,}
+
+    if [[ "$mobile_choice" == "y" || "$mobile_choice" == "yes" ]]; then
+        echo -e "\n${YELLOW}Awesome! Let's connect your devices.${NC}"
+        
+        # Check and configure UFW if active
+        if command -v ufw >/dev/null 2>&1; then
+            if sudo ufw status | grep -qi "active"; then
+                echo -e "${CYAN}🛡️  UFW Firewall is active. Opening ports for KDE Connect (1714-1764)...${NC}"
+                sudo ufw allow 1714:1764/tcp >/dev/null
+                sudo ufw allow 1714:1764/udp >/dev/null
+                sudo ufw reload >/dev/null
+                echo -e "   ${GREEN}✔️ Ports opened successfully!${NC}"
+            fi
+        fi
+
+        PC_NAME=$(hostname)
+        echo -e "\n${CYAN}📲 Grab your phone and open the KDE Connect app.${NC}"
+        echo -e "${CYAN}🔍 Look for this PC name in the app: ${YELLOW}${PC_NAME}${NC}"
+        
+        echo -e "\n${BLUE}🔄 Refreshing KDE Connect daemon...${NC}"
+        kdeconnect-cli --refresh >/dev/null 2>&1 || true
+        
+        echo -e "${CYAN}📡 Please tap on '${PC_NAME}' on your phone and request pairing.${NC}"
+        echo -e "🔔 ${YELLOW}A notification will pop up here on your PC screen. Click 'Accept'.${NC}"
+        
+        echo ""
+        read -r -p "Press [Enter] when you have successfully paired to continue..." dummy < /dev/tty
+        echo -e "   ${GREEN}✔️ Mobile ecosystem ready!${NC}"
+        break
+
+    elif [[ "$mobile_choice" == "n" || "$mobile_choice" == "no" ]]; then
+        echo -e "\n${YELLOW}⏭️  Skipping Mobile integration.${NC}"
+        break
+
+    else
+        echo -e "${RED}![Error]: Invalid input. Please type 'y' for yes, or 'n' for no.${NC}\n"
+    fi
+done
+
+# ==========================================
+# 3. Final Wrap-up
+# ==========================================
 echo -e "\n${GREEN}✅ [Online Step 7]: Ecosystem integration complete!${NC}"
 echo -e "🎉 CONGRATULATIONS! The setup is 100% COMPLETE! 🎉"
 echo -e "${BLUE}Please REBOOT your system to apply all changes smoothly.${NC}\n"
