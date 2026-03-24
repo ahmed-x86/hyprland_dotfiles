@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-#hi it's my script for hyprland
+
 echo -e "--- [Step 1: The Foundation] ---"
 
-echo -e "Updating Pacman database..."
-sudo pacman -Syu --noconfirm
+echo -e "Refreshing Pacman database and updating keyrings..."
+sudo pacman -Sy archlinux-keyring --noconfirm
 
 echo -e "Installing essentials..."
 sudo pacman -S --needed --noconfirm base-devel git curl wget networkmanager bluetooth
