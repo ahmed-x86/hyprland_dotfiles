@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# --- Color Palette ---
 PINK="\e[1;35m"
 WHITE="\e[0m"
 YELLOW="\e[1;33m"
@@ -29,6 +29,7 @@ while true; do
             read -r -p "Enter your GitHub Username: " github_user
         done
 
+        echo -e "${YELLOW}⚠️ Note: The PAT will be stored locally in an .env file. Treat this machine securely.${WHITE}"
         read -r -s -p "Enter your GitHub Personal Access Token (PAT): " github_token
         echo "" 
         while [[ -z "$github_token" ]]; do
@@ -44,21 +45,21 @@ while true; do
 GITHUB_USERNAME=$github_user
 GITHUB_PAT=$github_token
 EOF
+        
         chmod 600 "$ENV_FILE"
-        echo -e "   ${GREEN}✔️ GitHub credentials saved securely!${WHITE}"
+        echo -e "   ${GREEN}✔️ GitHub credentials saved securely (chmod 600)!${WHITE}"
         break
 
     elif [[ "$choice" == "n" || "$choice" == "no" ]]; then
-        echo -e "\n${YELLOW}⏭️  Skipping GitHub integration. You can always set it up later manually.${WHITE}"
+        echo -e "\n${YELLOW}⏭️  Skipping GitHub integration.${WHITE}"
         mkdir -p "$(dirname "$ENV_FILE")"
         cat > "$ENV_FILE" <<EOF
 GITHUB_USERNAME=
 GITHUB_PAT=
 EOF
         break
-
     else
-        echo -e "${RED}![Error]: Invalid input. Please type 'y' for yes, or 'n' for no.${WHITE}\n"
+        echo -e "${RED}![Error]: Invalid input. Please type 'y' or 'n'.${WHITE}\n"
     fi
 done
 
@@ -75,7 +76,6 @@ while true; do
     if [[ "$mobile_choice" == "y" || "$mobile_choice" == "yes" ]]; then
         echo -e "\n${YELLOW}Awesome! Let's connect your devices.${WHITE}"
         
-        # Check and configure UFW if active
         if command -v ufw >/dev/null 2>&1; then
             if sudo ufw status | grep -qi "active"; then
                 echo -e "🛡️  UFW Firewall is active. Opening ports for KDE Connect (1714-1764)..."
@@ -96,7 +96,6 @@ while true; do
         echo -e "${CYAN}📡 Please tap on '${PC_NAME}' on your phone and request pairing.${WHITE}"
         echo -e "🔔 ${YELLOW}A notification will pop up here on your PC screen. Click 'Accept'.${WHITE}"
         
-        # Wait for the user to finish pairing
         echo ""
         read -r -p "Press [Enter] when you have successfully paired to continue..."
         echo -e "   ${GREEN}✔️ Mobile ecosystem ready!${WHITE}"
@@ -105,9 +104,8 @@ while true; do
     elif [[ "$mobile_choice" == "n" || "$mobile_choice" == "no" ]]; then
         echo -e "\n${YELLOW}⏭️  Skipping Mobile integration.${WHITE}"
         break
-
     else
-        echo -e "${RED}![Error]: Invalid input. Please type 'y' for yes, or 'n' for no.${WHITE}\n"
+        echo -e "${RED}![Error]: Invalid input. Please type 'y' or 'n'.${WHITE}\n"
     fi
 done
 
