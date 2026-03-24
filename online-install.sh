@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-set -euo pipefail
+
+# Enable maximum strictness (E ensures traps are inherited by functions)
+set -Eeuo pipefail
 
 # --- Color Palette ---
 PINK="\e[1;35m"
@@ -9,16 +11,77 @@ GREEN="\e[1;32m"
 RED="\e[1;31m"
 CYAN="\e[1;36m"
 
-start_time=$(date +%s)
+# --- Black Box Logger (Error Handler) ---
+ERROR_LOG="error_log.txt"
+touch "$ERROR_LOG"
 
+error_handler() {
+    local exit_code=$?
+    local failed_command=$BASH_COMMAND
+    local error_details=$(caller 0)
+    local line_number=$(echo "$error_details" | awk '{print $1}')
+    local file_name=$(echo "$error_details" | awk '{print $2}')
+
+    echo -e "\n${RED}===================================================${WHITE}"
+    echo -e "${RED}[CRITICAL ERROR] The online deployment tool encountered a fatal issue!${WHITE}"
+    echo -e "📂 File: ${YELLOW}$file_name${WHITE}"
+    echo -e "📍 Line: ${YELLOW}$line_number${WHITE}"
+    echo -e "💥 Failed Command: ${YELLOW}$failed_command${WHITE}"
+    echo -e "🔢 Exit Code: ${YELLOW}$exit_code${WHITE}"
+    echo -e "${RED}===================================================${WHITE}\n"
+
+    {
+        echo "========================================"
+        echo "CRASH REPORT (ONLINE INSTALLER)"
+        echo "========================================"
+        echo "Date & Time    : $(date '+%Y-%m-%d %H:%M:%S')"
+        echo "File           : $file_name"
+        echo "Line Number    : $line_number"
+        echo "Failed Command : $failed_command"
+        echo "Exit Code      : $exit_code"
+        echo "User           : $USER"
+        echo "========================================"
+        echo ""
+    } >> "$ERROR_LOG"
+
+    echo -e "${YELLOW}Detailed crash report saved to: ${RED}$ERROR_LOG${WHITE}"
+    exit "$exit_code"
+}
+
+# Trap any unhandled errors, interruptions (Ctrl+C), or termination signals
+trap 'error_handler' ERR SIGINT SIGTERM
+
+start_time=$(date +%s)
 clear
 
 # --- Header & Disclaimer ---
 echo -e "${PINK}**********************************************************************"
 echo -e "* ${RED}ATTENTION:${PINK} Ahmed's Hyprland Dotfiles Online Deployment Tool     *"
-echo -e "* This script will automate your setup and install dependencies.    *"
+echo -e "* This script will automate your setup and fetch dependencies.      *"
 echo -e "* Please ensure you have a backup of your current configurations.   *"
 echo -e "**********************************************************************${WHITE}\n"
+
+# ==========================================
+# Pre-flight Checks (OS & GPU)
+# ==========================================
+echo -e "${CYAN}🔍 Running Pre-flight Checks...${WHITE}"
+
+# 1. OS Check: Ensure it's Arch Linux
+if [[ ! -f "/etc/arch-release" ]]; then
+    echo -e "${RED}![Error]: This script is designed for Arch Linux only!${WHITE}"
+    exit 1
+fi
+echo -e "   ${GREEN}✔️ Arch Linux detected.${WHITE}"
+
+# 2. GPU Check: Detect NVIDIA for Hyprland compatibility
+if lspci | grep -iE 'vga|3d' | grep -qi 'nvidia'; then
+    echo -e "   ${YELLOW}⚠️ NVIDIA GPU detected. Special Hyprland environment variables will be needed.${WHITE}"
+    export HYPRLAND_NVIDIA_DETECTED=1
+else
+    echo -e "   ${GREEN}✔️ Non-NVIDIA GPU detected (AMD/Intel).${WHITE}"
+    export HYPRLAND_NVIDIA_DETECTED=0
+fi
+echo -e "------------------------------------------------------\n"
 
 # Initialize the tracking file if it's missing
 if [[ ! -f "steps.txt" ]]; then
@@ -49,6 +112,13 @@ while true; do
     # Fetch the script content via curl
     if ! script_content=$(curl -fsSL "$script_url"); then
         echo -e "\n${RED}✘ Error: Could not fetch ${script_name} (Network Error or 404)${WHITE}"
+        # Log the network failure to the Black Box
+        {
+            echo "--- Network/Fetch Failure for ${script_name} at $(date) ---"
+            echo "Attempted URL: $script_url"
+            echo "Possible causes: No internet connection or file missing on GitHub."
+            echo -e "------------------------------------------\n"
+        } >> "$ERROR_LOG"
         exit 1
     fi
 
@@ -56,15 +126,15 @@ while true; do
     if ! bash -c "$script_content" 2>&1 | tee .temp_log.txt; then
         echo -e "\n${RED}✘ Oops! Something went wrong in ${script_name}.${WHITE}"
         
-        # Log the failure with a timestamp
+        # Log the child script failure with a timestamp
         {
-            echo "--- Failure in ${script_name} at $(date) ---"
+            echo "--- Child Script Failure: ${script_name} at $(date) ---"
             cat .temp_log.txt
             echo -e "------------------------------------------\n"
-        } >> error_log.txt
+        } >> "$ERROR_LOG"
         
         rm -f .temp_log.txt
-        echo -e "${YELLOW}Please check '${RED}error_log.txt${YELLOW}' to see what happened.${WHITE}"
+        echo -e "${YELLOW}Please check '${RED}$ERROR_LOG${YELLOW}' to see what happened.${WHITE}"
         exit 1
     fi
 
