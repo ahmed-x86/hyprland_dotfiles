@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # Set directories and paths
-DEST_DIR="$HOME/.cache/swww"
+DEST_DIR="$HOME/.cache/awww"
 THUMB_PATH="$DEST_DIR/normal.png"
 
 # Ensure the cache directory exists
 mkdir -p "$DEST_DIR"
 
-# Get the current wallpaper path from swww
+# Get the current wallpaper path from awww
 # We use awk directly to extract the first valid image path
-CURRENT_WALLPAPER=$(swww query | awk -F'image: ' '/image:/ {print $2; exit}')
+CURRENT_WALLPAPER=$(awww query | awk -F'image: ' '/image:/ {print $2; exit}')
 
-# Safety Check 1: Ensure swww returned a path, and the file actually exists
+# Safety Check 1: Ensure awww returned a path, and the file actually exists
 if [[ -z "$CURRENT_WALLPAPER" || ! -f "$CURRENT_WALLPAPER" ]]; then
     # Silently exit or log error if no wallpaper is set
     exit 1
@@ -32,3 +32,4 @@ else
     # Ultimate fallback: Just copy the image if no thumbnail tools exist
     cp "$CURRENT_WALLPAPER" "$THUMB_PATH"
 fi
+
