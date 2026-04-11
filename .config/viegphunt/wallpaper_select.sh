@@ -50,8 +50,8 @@ if [[ -n "$image_full_path" && -f "$image_full_path" ]]; then
     # Pick a random angle between 0 and 360 (Only affects wipe and wave)
     RANDOM_ANGLE=$(( RANDOM % 360 ))
 
-    # Change wallpaper using swww with all the advanced random parameters
-    swww img "$image_full_path" \
+    # Change wallpaper using awww with all the advanced random parameters
+    awww img "$image_full_path" \
         --transition-type "$RANDOM_TRANSITION" \
         --transition-duration "$RANDOM_DURATION" \
         --transition-angle "$RANDOM_ANGLE" \
