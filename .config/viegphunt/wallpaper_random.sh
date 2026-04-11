@@ -28,8 +28,8 @@ if [[ -n "$random_wallpaper" && -f "$random_wallpaper" ]]; then
     # Pick a random angle between 0 and 360 (Only affects wipe and wave)
     RANDOM_ANGLE=$(( RANDOM % 360 ))
 
-    # Change wallpaper using swww with all the advanced random parameters
-    swww img "$random_wallpaper" \
+    # Change wallpaper using awww with all the advanced random parameters
+    awww img "$random_wallpaper" \
         --transition-type "$RANDOM_TRANSITION" \
         --transition-duration "$RANDOM_DURATION" \
         --transition-angle "$RANDOM_ANGLE" \
