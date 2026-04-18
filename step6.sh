@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo -e "\n🔥 [Step 6]: Breathing Life into the Kingdom (swww & Wallpapers)..."
+echo -e "\n🔥 [Step 6]: Breathing Life into the Kingdom (awww & Wallpapers)..."
 
 USER_HOME="$HOME"
 WALLPAPER_DIR="$USER_HOME/Pictures/Wallpapers"
 
-echo -e "📦 Installing swww..."
-sudo pacman -S --noconfirm swww
+echo -e "📦 Installing awww..."
+sudo pacman -S --noconfirm awww
 
 echo -e "🖼️  Scanning the royal armory for wallpapers..."
 
