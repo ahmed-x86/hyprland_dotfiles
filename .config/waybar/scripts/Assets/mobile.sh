@@ -3,10 +3,14 @@
 PHONEID=$(kdeconnect-cli -l --id-only | head -n 1)
 ICON="" 
 LOW_BATTERY_THRESHOLD=20
-
+STATE_FILE="/tmp/phone_charging_state" 
 
 send_notification() {
     notify-send -u critical -i "battery-low" "KDE Connect" " $1%"
+}
+
+send_discharged_notification() {
+    notify-send -u normal -i "battery-discharging" "KDE Connect" "Charger Disconnected"
 }
 
 if [ "$1" == "--ping" ]; then
@@ -42,6 +46,14 @@ is_charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$PHONEID/batt
 if [ -z "$battery" ]; then
     echo "{\"text\": \"$ICON --%\", \"class\": \"critical\"}"
 else
+    if [ -f "$STATE_FILE" ]; then
+        PREV_STATE=$(cat "$STATE_FILE")
+        if [ "$PREV_STATE" == "true" ] && [ "$is_charging" == "false" ]; then
+            send_discharged_notification
+        fi
+    fi
+    echo "$is_charging" > "$STATE_FILE"
+
     if [ "$battery" -le "$LOW_BATTERY_THRESHOLD" ] && [ "$is_charging" != "true" ]; then
         if [ ! -f "/tmp/phone_low_bat_notified" ]; then
             send_notification "$battery"
