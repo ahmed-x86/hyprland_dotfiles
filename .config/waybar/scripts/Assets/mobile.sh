@@ -25,6 +25,15 @@ if [ "$1" == "--ping" ]; then
     exit 0
 fi
 
+if [ "$1" == "--clipboard" ]; then
+    if [ -n "$PHONEID" ]; then
+        kdeconnect-cli -d "$PHONEID" --share-text "$(wl-paste)"
+        notify-send -u low -i "clipboard" "KDE Connect" "Clipboard sent to phone"
+    fi
+    exit 0
+fi
+# --------------------------------
+
 if ! pgrep -x kdeconnectd > /dev/null; then
     echo "{\"text\": \"$ICON ?\", \"class\": \"critical\", \"tooltip\": \"KDE Connect service not running\"}"
     exit 0
