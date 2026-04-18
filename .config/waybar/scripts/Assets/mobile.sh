@@ -13,6 +13,11 @@ send_discharged_notification() {
     notify-send -u normal -i "battery-discharging" "KDE Connect" "Charger Disconnected"
 }
 
+send_charging_notification() {
+    notify-send -u normal -i "battery-charging" "KDE Connect" "Charger Connected"
+}
+# ---------------------------------------
+
 if [ "$1" == "--ping" ]; then
     if [ -n "$PHONEID" ]; then
         kdeconnect-cli -d "$PHONEID" --ping
@@ -50,7 +55,10 @@ else
         PREV_STATE=$(cat "$STATE_FILE")
         if [ "$PREV_STATE" == "true" ] && [ "$is_charging" == "false" ]; then
             send_discharged_notification
+        elif [ "$PREV_STATE" == "false" ] && [ "$is_charging" == "true" ]; then
+            send_charging_notification
         fi
+        # ---------------------------------
     fi
     echo "$is_charging" > "$STATE_FILE"
 
