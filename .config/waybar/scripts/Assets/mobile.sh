@@ -2,6 +2,12 @@
 
 PHONEID=$(kdeconnect-cli -l --id-only | head -n 1)
 ICON="" 
+LOW_BATTERY_THRESHOLD=20
+
+
+send_notification() {
+    notify-send -u critical -i "battery-low" "KDE Connect" " $1%"
+}
 
 if [ "$1" == "--ping" ]; then
     if [ -n "$PHONEID" ]; then
@@ -36,7 +42,14 @@ is_charging=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$PHONEID/batt
 if [ -z "$battery" ]; then
     echo "{\"text\": \"$ICON --%\", \"class\": \"critical\"}"
 else
-    
+    if [ "$battery" -le "$LOW_BATTERY_THRESHOLD" ] && [ "$is_charging" != "true" ]; then
+        if [ ! -f "/tmp/phone_low_bat_notified" ]; then
+            send_notification "$battery"
+            touch "/tmp/phone_low_bat_notified"
+        fi
+    elif [ "$battery" -gt "$LOW_BATTERY_THRESHOLD" ]; then
+        rm -f "/tmp/phone_low_bat_notified"
+    fi
     if [ "$battery" -le 20 ]; then
         color="critical"
     elif [ "$battery" -le 50 ]; then
@@ -45,13 +58,13 @@ else
         color="normal"
     fi
 
-    
+
     if [ "$is_charging" == "true" ]; then
         INFO="$ICON  $battery%"
+        rm -f "/tmp/phone_low_bat_notified"
     else
         INFO="$ICON $battery%"
     fi
-
-    
     echo "{\"text\": \"$INFO\", \"class\": \"$color\", \"tooltip\": \"Battery: $battery%\"}"
 fi
+
