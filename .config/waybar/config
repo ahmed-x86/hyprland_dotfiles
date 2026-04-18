@@ -100,10 +100,10 @@
     },
     "custom/mobile": {
         "format": "{text}",
-        "exec": "~/.config/waybar/scripts/mobile.sh",
+        "exec": "~/.config/waybar/scripts/Assets/mobile.sh",
         "interval": 30,
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/mobile.sh --ping" 
+        "on-click": "~/.config/waybar/scripts/Assets/mobile.sh --ping" 
     },
 
     "tray": {
